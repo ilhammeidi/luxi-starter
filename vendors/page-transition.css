@@ -1,0 +1,27 @@
+.page-fade-transition-enter {
+  opacity: 0;
+}
+
+.page-fade-transition-enter-active {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+
+.page-fade-transition-exit {
+  opacity: 1;
+}
+
+.page-fade-transition-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+.fragment-fadeIn {
+  opacity: 0;
+  transition-delay: 300ms
+}
+
+.page-transition-enter-done .fragment-fadeIn {
+  opacity: 1;
+  transition: opacity 400ms;
+}
