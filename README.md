@@ -22,7 +22,7 @@ https://ilhammeidi.github.io/luxinext-doc/
 - Fully vector icons and font icons.
 - And many more…
 
-# Get Prime Version
+# Get All Landing Page Collection
 ![Luxiren](https://firebasestorage.googleapis.com/v0/b/enlite-3a841.appspot.com/o/images%2Fluxi-react-github.jpg?alt=media&token=0f44b4cb-9ddb-4fcb-b325-1382ddc08d00)
 
 [GET IT NOW on Envato](https://themeforest.net/item/luxiren-react-js-landing-page-collection/25087071)
