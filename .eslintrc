@@ -18,12 +18,14 @@
   },
   "parser": "babel-eslint",
   "rules": {
+    "template-curly-spacing" : "off",
+    "indent" : "off",
     "no-nested-ternary": 0,
     "import/no-unresolved": 0,
     "import/no-named-as-default": 0,
     "no-unused-expressions": 0,
     "comma-dangle": 0,  // not sure why airbnb turned this on. gross!
-    "indent": [2, 2, {"SwitchCase": 1}],
+//    "indent": [2, 2, {"SwitchCase": 1}],
     "no-console": 0,
     "no-alert": 0,
     "id-length": 0,
