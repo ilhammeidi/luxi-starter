@@ -44,12 +44,12 @@ function Landing(props) {
     <React.Fragment>
       <Head>
         <title>
-          { brand.starter.name }
+          {brand.starter.name}
           &nbsp; - Home Page
         </title>
       </Head>
-      <CssBaseline />
-      <section id="home" />
+      <CssBaseline/>
+      <section id="home"/>
       <div className={classes.mainWrap}>
         <Header
           onToggleDark={onToggleDark}
@@ -58,36 +58,36 @@ function Landing(props) {
         <main className={classes.containerWrap}>
           <section>
             <Container fixed>
-              <AnimateSlider />
+              <AnimateSlider/>
             </Container>
           </section>
           <section className={clsx(classes.spaceTop, classes.spaceBottom)} id="feature">
             <Container fixed>
-              <Feature />
+              <Feature/>
             </Container>
           </section>
           <section className={classes.pageSection}>
-            <Counter />
+            <Counter/>
           </section>
           <section className={classes.spaceTop} id="testimonials">
-            <Testimonials />
+            <Testimonials/>
           </section>
           <section className={classes.spaceTop} id="pricing">
-            <Pricing />
+            <Pricing/>
           </section>
           <section className={clsx(classes.spaceTop, classes.spaceBottom)} id="blog">
-            <Blog />
+            <Blog/>
           </section>
           <section id="subscribe">
-            <Subscribe />
+            <Subscribe/>
           </section>
         </main>
         <Hidden mdDown>
-          <PageNav />
+          <PageNav/>
         </Hidden>
-        <Footer toggleDir={onToggleDir} />
+        <Footer toggleDir={onToggleDir}/>
         <Hidden mdDown>
-          <Notification />
+          <Notification/>
         </Hidden>
       </div>
     </React.Fragment>

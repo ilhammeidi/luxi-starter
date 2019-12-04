@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{useState}from 'react';
 import App, { Container } from 'next/app';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { create } from 'jss';
@@ -9,6 +9,8 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Loading from 'react-loading-bar';
 import { i18n, appWithTranslation } from '../i18n';
 import appTheme from '../theme/appTheme';
+import ContextProvider from '../context/ContextProvider';
+
 /* import css vendors */
 import '../node_modules/react-loading-bar/dist/index.css';
 import '../node_modules/animate.css/animate.css';
@@ -29,7 +31,7 @@ class MyApp extends App {
       ...appTheme('burgundy', themeType),
       direction: i18n.language === 'ar' ? 'rtl' : 'ltr'
     }
-  }
+  };
 
   componentDidMount() {
     // Set layout direction
@@ -43,7 +45,9 @@ class MyApp extends App {
 
     // Remove loading bar
     this.setState({ loading: true });
-    setTimeout(() => { this.setState({ loading: false }); }, 2000);
+    setTimeout(() => {
+      this.setState({ loading: false });
+    }, 2000);
 
     // Refresh JSS in SSR
     const jssStyles = document.querySelector('#jss-server-side');
@@ -62,7 +66,7 @@ class MyApp extends App {
         direction: theme.direction,
       }
     });
-  }
+  };
 
   toggleDirection = dir => {
     const { theme } = this.state;
@@ -76,7 +80,7 @@ class MyApp extends App {
         }
       }
     });
-  }
+  };
 
   render() {
     const { theme, loading } = this.state;
@@ -84,28 +88,31 @@ class MyApp extends App {
     const { Component, pageProps, router } = this.props; // eslint-disable-line
     const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
     return (
-      <Container>
-        <StylesProvider jss={jss}>
-          <MuiThemeProvider theme={muiTheme}>
-            <CssBaseline />
-            <Loading
-              show={loading}
-              color={theme.palette.primary.main}
-              showSpinner={false}
-            />
-            <div id="main-wrap">
-              <PageTransition timeout={300} classNames="page-fade-transition">
-                <Component
-                  {...pageProps}
-                  onToggleDark={this.toggleDarkTheme}
-                  onToggleDir={this.toggleDirection}
-                  key={router.route}
-                />
-              </PageTransition>
-            </div>
-          </MuiThemeProvider>
-        </StylesProvider>
-      </Container>
+      <ContextProvider>
+        <Container>
+          <StylesProvider jss={jss}>
+            <MuiThemeProvider theme={muiTheme}>
+              <CssBaseline/>
+              <Loading
+                show={loading}
+                color={theme.palette.primary.main}
+                showSpinner={false}
+              />
+              <div id="main-wrap">
+                <PageTransition timeout={300} classNames="page-fade-transition">
+                  <Component
+                    {...pageProps}
+                    onToggleDark={this.toggleDarkTheme}
+                    onToggleDir={this.toggleDirection}
+                    key={router.route}
+                  />
+                </PageTransition>
+              </div>
+            </MuiThemeProvider>
+          </StylesProvider>
+        </Container>
+      </ContextProvider>
+
     );
   }
 }

@@ -14,6 +14,7 @@ const appTheme = (color, mode) => ({
       'Roboto',
       'Roboto Condensed',
       'sans-serif',
+      'Tajawal'
     ].join(','),
   },
   shade: {
