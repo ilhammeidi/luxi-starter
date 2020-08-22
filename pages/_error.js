@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import Head from 'next/head';
-import brand from '~/static/text/brand';
+import brand from '~/public/text/brand';
 import PropTypes from 'prop-types';
 import Error from '../components/Error';
 import Footer from '../components/Footer';

@@ -11,7 +11,7 @@ import AnchorLink from 'react-anchor-link-smooth-scroll';
 import Scrollspy from 'react-scrollspy';
 import Settings from './Settings';
 import MobileMenu from './MobileMenu';
-import logo from '~/static/images/logo.svg';
+import logo from '~/public/images/logo.svg';
 import '~/vendors/hamburger-menu.css';
 import useStyles from './header-style';
 import navMenu from './menu';
@@ -102,14 +102,14 @@ function Header(props) {
                     </li>
                   )) }
                   <li>
-                    <Button href="/contact">Contact</Button>
+                    <Button href="#">Contact</Button>
                   </li>
                 </Scrollspy>
               )}
             </nav>
             <nav className={classes.userMenu}>
-              { isDesktop && <Button href="/login">Login</Button> }
-              <Button variant="contained" color="primary" href="/register">Register</Button>
+              { isDesktop && <Button href="#">Login</Button> }
+              <Button variant="contained" color="primary" href="#">Register</Button>
               { isDesktop && <span className={classes.vDivider} /> }
               <Settings toggleDark={onToggleDark} toggleDir={onToggleDir} />
             </nav>

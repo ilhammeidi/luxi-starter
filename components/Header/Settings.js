@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import Popover from '@material-ui/core/Popover';
@@ -24,6 +24,7 @@ if (typeof Storage !== 'undefined') {
 }
 
 function Settings(props) {
+  const [ctn, setCtn] = useState(null);
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);
   const [isDark, setDark] = useState(themeType === 'dark');
@@ -51,6 +52,10 @@ function Settings(props) {
     }
   }
 
+  useEffect(() => {
+    setCtn(document.getElementById('main-wrap'));
+  });
+
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
   return (
@@ -68,6 +73,7 @@ function Settings(props) {
         open={open}
         anchorEl={anchorEl}
         onClose={handleClose}
+        container={ctn}
         anchorOrigin={{
           vertical: 'bottom',
           horizontal: 'center',

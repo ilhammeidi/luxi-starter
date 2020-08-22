@@ -8,9 +8,9 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import HomeIcon from 'react-ionicons/lib/IosHomeOutline';
-import brand from '~/static/text/brand';
-import routerLink from '~/static/text/link';
-import logo from '~/static/images/logo.svg';
+import brand from '~/public/text/brand';
+import routerLink from '~/public/text/link';
+import logo from '~/public/images/logo.svg';
 import useStyles from './form-style';
 
 function AuthFrame(props) {

@@ -22,8 +22,8 @@ import TwitterIcon from 'react-ionicons/lib/LogoTwitter';
 import InstagramIcon from 'react-ionicons/lib/LogoInstagram';
 import LinkedinIcon from 'react-ionicons/lib/LogoLinkedin';
 import { i18n, withTranslation } from '~/i18n';
-import logo from '~/static/images/logo.svg';
-import brand from '~/static/text/brand';
+import logo from '~/public/images/logo.svg';
+import brand from '~/public/text/brand';
 import { useTextAlign } from '~/theme/common';
 import useStyles from './footer-style';
 
@@ -55,6 +55,7 @@ const footers = [
 ];
 
 function Footer(props) {
+  const [ctn, setCtn] = useState(null);
   // Theme breakpoints
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
@@ -71,6 +72,7 @@ function Footer(props) {
 
   useEffect(() => {
     setValues({ lang: i18n.language });
+    setCtn(document.getElementById('main-wrap'));
   }, []);
 
   function handleChange(event) {
@@ -98,7 +100,7 @@ function Footer(props) {
             </Typography>
           </div>
           <Typography color="textPrimary" className={classes.footerDesc} gutterBottom>
-            {t('starter-landing:description_text')}
+            {t('common:starter-landing.description_text')}
           </Typography>
           {isDesktop && <Copyright />}
         </Grid>
@@ -176,6 +178,9 @@ function Footer(props) {
           <Select
             value={values.lang}
             onChange={handleChange}
+            MenuProps={{
+              container: ctn
+            }}
             startAdornment={(
               <InputAdornment className={classes.icon} position="start">
                 <LangIcon />

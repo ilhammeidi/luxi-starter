@@ -5,13 +5,13 @@ import Carousel from 'react-slick';
 import Paper from '@material-ui/core/Paper';
 import useStyle from './testi-style';
 import { useTextAlign } from '~/theme/common';
-import imgAPI from '~/static/images/imgAPI';
+import imgAPI from '~/public/images/imgAPI';
 
 const testiContent = [
   {
     text: 'Sed imperdiet enim ligula, vitae viverra justo porta vel.',
     avatar: imgAPI.avatar[10],
-    name: 'Alex Tebalek - CTO La Lieur'
+    name: 'John Doe - CTO La Lieur'
   },
   {
     text: 'Cras convallis lacus orci, tristique tincidunt magna consequat in. In vel pulvinar est, at euismod libero.',

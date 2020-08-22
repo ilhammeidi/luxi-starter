@@ -7,7 +7,7 @@ import SnackbarContent from '@material-ui/core/SnackbarContent';
 import Slide from '@material-ui/core/Slide';
 import useStyles from './notification-style';
 import { withTranslation } from '~/i18n';
-import msg from '~/static/text/brand';
+import msg from '~/public/text/brand';
 
 function TransitionUp(props) {
   return <Slide {...props} direction="up" />;

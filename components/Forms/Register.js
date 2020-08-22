@@ -9,7 +9,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Grid from '@material-ui/core/Grid';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 import { withTranslation } from '~/i18n';
-import routeLink from '~/static/text/link';
+import routeLink from '~/public/text/link';
 import SocialAuth from './SocialAuth';
 import Title from '../Title/TitleSecondary';
 import AuthFrame from './AuthFrame';

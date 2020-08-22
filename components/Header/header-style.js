@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
-import flag from '~/static/images/flag-logo.png';
+import flag from '~/public/images/flag-logo.png';
 
 const flagIcon = {
   width: 16,

@@ -1,12 +1,12 @@
 import React from 'react';
-import Document, { Main, NextScript } from 'next/document';
+import Document, { Html, Main, NextScript } from 'next/document';
 import { ServerStyleSheets } from '@material-ui/styles';
 import HeadComponent from '../components/head';
 
 class MyDocument extends Document {
   render() {
     return (
-      <html lang="en" dir="ltr">
+      <Html lang="en" dir="ltr">
         <HeadComponent />
         <body>
           <div
@@ -26,14 +26,14 @@ class MyDocument extends Document {
                 top: 'calc(50% - 50px)',
                 left: 'calc(50% - 50px)'
               }}
-              src="/static/images/loading.gif"
+              src="/images/loading.gif"
               alt="loading"
             />
           </div>
           <Main />
           <NextScript />
         </body>
-      </html>
+      </Html>
     );
   }
 }

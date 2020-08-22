@@ -42,5 +42,9 @@
   "zh": "简体中文",
   "pt": "󠁥󠁮󠁧󠁿Português",
   "id": "󠁥󠁮󠁧󠁿Bahasa Indonesia",
-  "ar": "󠁥󠁮󠁧󠁿العربيّة"
+  "ar": "󠁥󠁮󠁧󠁿العربيّة",
+  "starter-landing": {
+    "title": "一个简单的例子",
+    "description_text": "从这里开始建立你的页面。"
+  }
 }

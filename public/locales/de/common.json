@@ -42,5 +42,9 @@
   "zh": "简体中文",
   "pt": "󠁥󠁮󠁧󠁿Português",
   "id": "󠁥󠁮󠁧󠁿Bahasa Indonesia",
-  "ar": "󠁥󠁮󠁧󠁿العربيّة"
+  "ar": "󠁥󠁮󠁧󠁿العربيّة",
+  "starter-landing": {
+    "title": "Ein einfaches Beispiel",
+    "description_text": "Baue deine Seite mit here auf"
+  }
 }

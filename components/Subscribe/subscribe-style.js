@@ -4,7 +4,7 @@ const subscribeStyles = makeStyles(theme => ({
   subscribeWrap: {
     maxWidth: 600,
     margin: theme.spacing(0, 2),
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.up('sm')]: {
       margin: '0 auto -32px',
     },
     zIndex: 10,

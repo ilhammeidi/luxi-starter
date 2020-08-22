@@ -5,7 +5,8 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
     minHeight: '90vh',
     display: 'flex',
-    alignItems: 'center'
+    alignItems: 'center',
+    paddingTop: theme.spacing(25)
   },
   flex: {
     display: 'flex',
@@ -40,11 +41,11 @@ const useStyles = makeStyles(theme => ({
     }
   },
   text: {
-    borderLeft: `1px solid ${theme.palette.divider}`,
     [theme.breakpoints.up('md')]: {
+      borderLeft: `1px solid ${theme.palette.divider}`,
       paddingLeft: theme.spacing(5),
     },
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('sm')]: {
       textAlign: 'center'
     },
     '& h4': {

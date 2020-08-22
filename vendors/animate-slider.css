@@ -25,15 +25,13 @@
 		top: 50%;
 		transform: translateY(-50%);
 		z-index: 10;
-		background: url('http://svgshare.com/i/41_.svg') no-repeat center center / 16px;
-		width: 32px;
-		height: 32px;
+    filter: invert(1);
+		background: url('https://svgshare.com/i/Nyu.svg') no-repeat center center / 16px;
+    background-size: 100%;
+		width: 52px;
+		height: 52px;
 		text-indent: -9999px;
 		cursor: pointer;
-}
-
-.previousButton:hover, .nextButton:hover {
-  background: url('http://svgshare.com/i/41_.svg') no-repeat center center / 16px;
 }
 
 .previousButton {

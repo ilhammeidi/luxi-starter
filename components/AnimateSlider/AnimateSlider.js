@@ -8,7 +8,7 @@ import useStyles from './slider-style';
 import 'react-animated-slider/build/horizontal.css';
 import { withTranslation } from '~/i18n';
 import '~/vendors/animate-slider.css';
-import imgAPI from '~/static/images/imgAPI';
+import imgAPI from '~/public/images/imgAPI';
 
 const content = [
   {
@@ -48,7 +48,7 @@ function AnimateSlider(props) {
           >
             <div className="inner">
               <Typography variant="h1">{t('common:' + item.title)}</Typography>
-              <Typography variant="body1">{t('starter-landing:description_text')}</Typography>
+              <Typography variant="body1">{t('common:starter-landing.description_text')}</Typography>
               <div className={classes.heroButtons}>
                 <Grid container spacing={2} justify="center">
                   <Grid item>

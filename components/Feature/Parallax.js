@@ -24,7 +24,7 @@ export default function ParallaxDeco() {
                 )
               }
             >
-              <use xlinkHref="/static/images/decoration/dot-deco.svg#dot" />
+              <use xlinkHref="/images/decoration/dot-deco.svg#dot" />
             </svg>
           </Parallax>
           <Parallax
@@ -42,7 +42,7 @@ export default function ParallaxDeco() {
                 )
               }
             >
-              <use xlinkHref="/static/images/decoration/triangle-deco.svg#triangle" />
+              <use xlinkHref="/images/decoration/triangle-deco.svg#triangle" />
             </svg>
           </Parallax>
           <Parallax
@@ -60,7 +60,7 @@ export default function ParallaxDeco() {
                 )
               }
             >
-              <use xlinkHref="/static/images/decoration/circle-deco.svg#circle" />
+              <use xlinkHref="/images/decoration/circle-deco.svg#circle" />
             </svg>
           </Parallax>
         </div>

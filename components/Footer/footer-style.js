@@ -26,7 +26,8 @@ const footerStyles = makeStyles(theme => ({
     },
     '& p': {
       [theme.breakpoints.down('sm')]: {
-        padding: theme.spacing(0, 3)
+        padding: theme.spacing(0, 3),
+        textAlign: 'center'
       }
     }
   },
@@ -51,6 +52,7 @@ const footerStyles = makeStyles(theme => ({
       color: theme.palette.text.disabled,
     },
     [theme.breakpoints.down('sm')]: {
+      justifyContent: 'center',
       padding: theme.spacing(0, 3)
     }
   },
@@ -99,7 +101,7 @@ const footerStyles = makeStyles(theme => ({
       boxShadow: '0 1.5px 12px 2px rgba(0, 0, 0, 0.06)',
       border: `1px solid ${theme.palette.type === 'dark' ? theme.palette.primary.light : theme.palette.primary.main} !important`,
       '& legend': {
-        top: 5,
+        top: 6,
         position: 'relative',
         borderTop: `1px solid ${theme.palette.type === 'dark' ? theme.palette.primary.light : theme.palette.primary.main}`
       }

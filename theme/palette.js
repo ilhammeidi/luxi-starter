@@ -10,7 +10,7 @@ module.exports = {
         light: '#bbdefb',
         main: '#2196f3',
         dark: '#1565c0'
-      },
+      }
     }
   }
 };

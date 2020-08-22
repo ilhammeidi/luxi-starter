@@ -12,7 +12,7 @@ import Snackbar from '@material-ui/core/Snackbar';
 import HomeIcon from 'react-ionicons/lib/IosHomeOutline';
 import BackIcon from 'react-ionicons/lib/IosArrowRoundBack';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
-import routeLink from '~/static/text/link';
+import routeLink from '~/public/text/link';
 import { withTranslation } from '~/i18n';
 import useStyles from './form-style';
 

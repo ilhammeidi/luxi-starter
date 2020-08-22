@@ -1,10 +1,10 @@
 module.exports = {
   starter: {
-    name: 'Luxi Starter',
-    desc: 'Luxi Starter - React Starter Template',
-    prefix: 'luxi',
-    footerText: 'Luxi Theme All Rights Reserved 2019',
-    logoText: 'Luxi Theme',
+    name: 'Luxiren Starter',
+    desc: 'Luxiren Starter - React Starter Template',
+    prefix: 'luxiren',
+    footerText: 'Luxiren Theme All Rights Reserved 2020',
+    logoText: 'Luxiren Theme',
     projectName: 'Starter Project',
     url: 'luxi.ux-maestro.com',
     img: '/static/images/logo.png',

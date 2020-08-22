@@ -17,7 +17,7 @@ import Subscribe from '../components/Subscribe';
 import Footer from '../components/Footer';
 import PageNav from '../components/PageNav';
 import Notification from '../components/Notification';
-import brand from '../static/text/brand';
+import brand from '../public/text/brand';
 
 const sectionMargin = margin => (margin * 15);
 const useStyles = makeStyles(theme => ({

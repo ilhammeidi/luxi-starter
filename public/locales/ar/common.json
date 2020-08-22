@@ -42,5 +42,9 @@
   "zh": "简体中文",
   "pt": "󠁥󠁮󠁧󠁿Português",
   "id": "󠁥󠁮󠁧󠁿Bahasa Indonesia",
-  "ar": "󠁥󠁮󠁧󠁿العربيّة"
+  "ar": "󠁥󠁮󠁧󠁿العربيّة",
+  "starter-landing": {
+    "title": "مثال بسيط",
+    "description_text": "إنها صفحة فارغة. ابدأ في إنشاء صفحتك من هنا."
+  }
 }
