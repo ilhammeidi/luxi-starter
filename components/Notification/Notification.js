@@ -7,7 +7,6 @@ import SnackbarContent from '@material-ui/core/SnackbarContent';
 import Slide from '@material-ui/core/Slide';
 import useStyles from './notification-style';
 import { withTranslation } from '~/i18n';
-import msg from '~/public/text/brand';
 
 function TransitionUp(props) {
   return <Slide {...props} direction="up" />;
@@ -34,7 +33,7 @@ function Notification(props) {
       onClose={handleClose}
     >
       <SnackbarContent
-        message={<Typography id="message-id">{msg.starter.notifMsg}</Typography>}
+        message={<Typography id="message-id">{t('common:notif_msg')}</Typography>}
         classes={{
           action: classes.action
         }}

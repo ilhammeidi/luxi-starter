@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import App from 'next/app';
 import PropTypes from 'prop-types';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import {
+  ThemeProvider,
+  createMuiTheme,
+  StylesProvider,
+  jssPreset
+} from '@material-ui/core/styles';
 import { create } from 'jss';
 import { PageTransition } from 'next-page-transitions';
 import rtl from 'jss-rtl';
-import { StylesProvider, jssPreset } from '@material-ui/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import LoadingBar from 'react-top-loading-bar';
 import { i18n, appWithTranslation } from '../i18n';
@@ -12,6 +17,7 @@ import appTheme from '../theme/appTheme';
 /* import css vendors */
 import '../node_modules/animate.css/animate.css';
 import '../vendors/animate-extends.css';
+import '../vendors/react-top-loading-bar.css';
 import '../vendors/page-transition.css';
 import '../vendors/slick/slick.css';
 import '../vendors/slick/slick-theme.css';
@@ -75,12 +81,13 @@ function MyApp(props) {
   return (
     <div>
       <StylesProvider jss={jss}>
-        <MuiThemeProvider theme={muiTheme}>
+        <ThemeProvider theme={muiTheme}>
           <CssBaseline />
           <LoadingBar
-            height={3}
-            color={theme.palette.primary.light}
+            height={0}
+            color={theme.palette.primary.main}
             progress={loading}
+            className="top-loading-bar"
           />
           <div id="main-wrap">
             <PageTransition timeout={300} classNames="page-fade-transition">
@@ -92,7 +99,7 @@ function MyApp(props) {
               />
             </PageTransition>
           </div>
-        </MuiThemeProvider>
+        </ThemeProvider>
       </StylesProvider>
     </div>
   );
@@ -102,5 +109,7 @@ MyApp.propTypes = {
   Component: PropTypes.elementType.isRequired,
   pageProps: PropTypes.object.isRequired
 };
+
+MyApp.getInitialProps = async (appContext) => ({...await App.getInitialProps(appContext) })
 
 export default appWithTranslation(MyApp);

@@ -43,6 +43,7 @@
   "pt": "󠁥󠁮󠁧󠁿Português",
   "id": "󠁥󠁮󠁧󠁿Bahasa Indonesia",
   "ar": "󠁥󠁮󠁧󠁿العربيّة",
+  "notif_msg": "这是一条消息示例，通常用于向访问者或用户提供重要信息。 请单击旁边的按钮以关闭此消息。",
   "starter-landing": {
     "title": "一个简单的例子",
     "description_text": "从这里开始建立你的页面。"
