@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Head from 'next/head';
 import App from 'next/app';
 import PropTypes from 'prop-types';
 import {
@@ -31,17 +32,19 @@ function MyApp(props) {
   const [loading, setLoading] = useState(0);
   const [theme, setTheme] = useState({
     ...appTheme('burgundy', themeType),
-    direction: i18n.language === 'ar' ? 'rtl' : 'ltr'
+    direction: i18n.language === 'ara' ? 'rtl' : 'ltr'
   });
 
   useEffect(() => {
     // Set layout direction
-    document.dir = i18n.language === 'ar' ? 'rtl' : 'ltr';
+    document.dir = i18n.language === 'ara' ? 'rtl' : 'ltr';
 
     // Remove preloader
     const preloader = document.getElementById('preloader');
     if (preloader !== null || undefined) {
-      preloader.remove();
+      setTimeout(() => {
+        preloader.remove();
+      }, 1500);
     }
 
     // Remove loading bar
@@ -80,6 +83,12 @@ function MyApp(props) {
   const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
   return (
     <div>
+      <Head>
+        <meta
+          name="viewport"
+          content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
+        />
+      </Head>
       <StylesProvider jss={jss}>
         <ThemeProvider theme={muiTheme}>
           <CssBaseline />

@@ -11,10 +11,6 @@ const HeadComponent = () => (
       name="description"
       content={brand.starter.desc}
     />
-    <meta
-      name="viewport"
-      content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
-    />
     {/* Favicon */}
     <link rel="shortcut icon" href="/favicons/favicon.ico" />
     <link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-icon-57x57.png" />

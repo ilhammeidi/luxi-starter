@@ -11,22 +11,22 @@ const flagIcon = {
   top: 1,
   background: `url(${flag}) no-repeat transparent`,
   backgroundSize: '16px auto',
-  '&[class="ar"]': {
+  '&[class="ara"]': {
     backgroundPosition: '0 3px'
   },
-  '&[class="zh"]': {
+  '&[class="zho"]': {
     backgroundPosition: '0 -12px'
   },
-  '&[class="en"]': {
+  '&[class="eng"]': {
     backgroundPosition: '0 -28px'
   },
-  '&[class="de"]': {
+  '&[class="deu"]': {
     backgroundPosition: '0 -44px'
   },
-  '&[class="id"]': {
+  '&[class="ind"]': {
     backgroundPosition: '0 -62px'
   },
-  '&[class="pt"]': {
+  '&[class="prt"]': {
     backgroundPosition: '0 -79px'
   },
 };

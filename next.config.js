@@ -3,7 +3,7 @@ const withImages = require('next-images');
 
 module.exports = withImages(
   withCSS({
-    exportTrailingSlash: true,
+    TrailingSlash: true,
     exportPathMap: function() {
       return {
         '/': { page: '/' },
