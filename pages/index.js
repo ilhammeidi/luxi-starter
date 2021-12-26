@@ -103,5 +103,4 @@ Landing.propTypes = {
   onToggleDir: PropTypes.func.isRequired,
 };
 
-
 export default Landing;

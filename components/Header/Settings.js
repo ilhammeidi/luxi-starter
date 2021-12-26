@@ -43,8 +43,8 @@ function Settings(props) {
   };
 
   function handleChangeLang(lang) {
-    if (lang === 'ar') {
-      i18n.changeLanguage('ar');
+    if (lang === 'ara') {
+      i18n.changeLanguage('ara');
       props.toggleDir('rtl');
     } else {
       i18n.changeLanguage(lang);

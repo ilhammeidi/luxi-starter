@@ -1,8 +1,5 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
-import FacebookIcon from 'react-ionicons/lib/LogoFacebook';
-import TwitterIcon from 'react-ionicons/lib/LogoTwitter';
-import GoogleIcon from 'react-ionicons/lib/LogoGoogle';
 import useStyles from './form-style';
 
 function SocialAuth() {
@@ -16,7 +13,7 @@ function SocialAuth() {
         type="button"
         size="large"
       >
-        <FacebookIcon />
+        <i className="ion-logo-facebook" />
         Facebook
       </Button>
       <Button
@@ -25,7 +22,7 @@ function SocialAuth() {
         type="button"
         size="large"
       >
-        <TwitterIcon />
+        <i className="ion-logo-twitter" />
         Twitter
       </Button>
       <Button
@@ -34,7 +31,7 @@ function SocialAuth() {
         type="button"
         size="large"
       >
-        <GoogleIcon />
+        <i className="ion-logo-google" />
         Google
       </Button>
     </section>

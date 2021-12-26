@@ -9,8 +9,6 @@ import SendIcon from '@material-ui/icons/Send';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Snackbar from '@material-ui/core/Snackbar';
-import HomeIcon from 'react-ionicons/lib/IosHomeOutline';
-import BackIcon from 'react-ionicons/lib/IosArrowRoundBack';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 import routeLink from '~/public/text/link';
 import { withTranslation } from '~/i18n';
@@ -61,8 +59,8 @@ function Contact(props) {
         message={<span id="message-id">Message Sent</span>}
       />
       <IconButton href={routeLink.starter.home} className={classes.backtohome}>
-        <HomeIcon />
-        <BackIcon />
+        <i className="ion-ios-home-outline" />
+        <i className="ion-ios-arrow-round-back" />
       </IconButton>
       <Container maxWidth="md">
         <Typography variant="h3" gutterBottom>

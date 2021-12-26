@@ -18,6 +18,7 @@ const footerStyles = makeStyles(theme => ({
       marginBottom: theme.spacing(),
       '& a': {
         fontSize: 14,
+        color: theme.palette.text.primary,
         textDecoration: 'none !important',
         '&:hover': {
           color: theme.palette.primary.main

@@ -15,12 +15,7 @@ import Typography from '@material-ui/core/Typography';
 import Select from '@material-ui/core/Select';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import MenuItem from '@material-ui/core/MenuItem';
-import Link from '@material-ui/core/Link';
 import IconButton from '@material-ui/core/IconButton';
-import FacebookIcon from 'react-ionicons/lib/LogoFacebook';
-import TwitterIcon from 'react-ionicons/lib/LogoTwitter';
-import InstagramIcon from 'react-ionicons/lib/LogoInstagram';
-import LinkedinIcon from 'react-ionicons/lib/LogoLinkedin';
 import { i18n, withTranslation } from '~/i18n';
 import logo from '~/public/images/logo.svg';
 import brand from '~/public/text/brand';
@@ -105,7 +100,7 @@ function Footer(props) {
           {isDesktop && <Copyright />}
         </Grid>
         <Grid item xs={12} md={6}>
-          <Grid container spacing={4} justify="space-evenly">
+          <Grid container spacing={4} justifyContent="space-evenly">
             {footers.map(footer => (
               <Grid item xs={12} md={3} key={footer.title} className={classes.siteMapItem}>
                 {isDesktop && (
@@ -116,9 +111,9 @@ function Footer(props) {
                     <ul>
                       {footer.description.map((item, index) => (
                         <li key={item}>
-                          <Link href={footer.link[index]} variant="subtitle1" color="textSecondary">
+                          <a href={footer.link[index]} variant="subtitle1" color="textSecondary">
                             {item}
-                          </Link>
+                          </a>
                         </li>
                       ))}
                     </ul>
@@ -147,9 +142,9 @@ function Footer(props) {
                       <ul>
                         {footer.description.map((item, index) => (
                           <li key={item}>
-                            <Link href={footer.link[index]} variant="subtitle1" color="textSecondary">
+                            <a href={footer.link[index]} variant="subtitle1" color="textSecondary">
                               {item}
-                            </Link>
+                            </a>
                           </li>
                         ))}
                       </ul>
@@ -163,16 +158,16 @@ function Footer(props) {
         <Grid item xs={12} md={3}>
           <div className={classes.socmed}>
             <IconButton aria-label="Delete" className={classes.margin} size="small">
-              <FacebookIcon fontSize="64" />
+              <i className="ion-logo-facebook" />
             </IconButton>
             <IconButton aria-label="Delete" className={classes.margin} size="small">
-              <TwitterIcon fontSize="64px" />
+              <i className="ion-logo-twitter" />
             </IconButton>
             <IconButton aria-label="Delete" className={classes.margin} size="small">
-              <InstagramIcon fontSize="64px" />
+              <i className="ion-logo-instagram" />
             </IconButton>
             <IconButton aria-label="Delete" className={classes.margin} size="small">
-              <LinkedinIcon fontSize="64px" />
+              <i className="ion-logo-linkedin" />
             </IconButton>
           </div>
           <Select

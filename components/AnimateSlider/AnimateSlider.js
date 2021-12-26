@@ -5,9 +5,7 @@ import Slider from 'react-animated-slider';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import useStyles from './slider-style';
-import 'react-animated-slider/build/horizontal.css';
 import { withTranslation } from '~/i18n';
-import '~/vendors/animate-slider.css';
 import imgAPI from '~/public/images/imgAPI';
 
 const content = [
@@ -50,7 +48,7 @@ function AnimateSlider(props) {
               <Typography variant="h1">{t('common:' + item.title)}</Typography>
               <Typography variant="body1">{t('common:starter-landing.description_text')}</Typography>
               <div className={classes.heroButtons}>
-                <Grid container spacing={2} justify="center">
+                <Grid container spacing={2} justifyContent="center">
                   <Grid item>
                     <Button variant="contained" color="primary">
                       Main call to action

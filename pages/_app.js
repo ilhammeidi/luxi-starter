@@ -4,7 +4,7 @@ import App from 'next/app';
 import PropTypes from 'prop-types';
 import {
   ThemeProvider,
-  createMuiTheme,
+  createTheme,
   StylesProvider,
   jssPreset
 } from '@material-ui/core/styles';
@@ -16,7 +16,10 @@ import LoadingBar from 'react-top-loading-bar';
 import { i18n, appWithTranslation } from '../i18n';
 import appTheme from '../theme/appTheme';
 /* import css vendors */
-import '../node_modules/animate.css/animate.css';
+import '~/vendors/hamburger-menu.css';
+import 'react-animated-slider/build/horizontal.css';
+import '~/vendors/animate-slider.css';
+import 'animate.css/animate.css';
 import '../vendors/animate-extends.css';
 import '../vendors/react-top-loading-bar.css';
 import '../vendors/page-transition.css';
@@ -78,7 +81,7 @@ function MyApp(props) {
     });
   };
 
-  const muiTheme = createMuiTheme(theme);
+  const muiTheme = createTheme(theme);
   const { Component, pageProps, router } = props; // eslint-disable-line
   const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
   return (
@@ -116,9 +119,10 @@ function MyApp(props) {
 
 MyApp.propTypes = {
   Component: PropTypes.elementType.isRequired,
-  pageProps: PropTypes.object.isRequired
+  pageProps: PropTypes.object.isRequired,
+  router: PropTypes.object.isRequired
 };
 
-MyApp.getInitialProps = async (appContext) => ({...await App.getInitialProps(appContext) })
+MyApp.getInitialProps = async (appContext) => ({ ...await App.getInitialProps(appContext) });
 
 export default appWithTranslation(MyApp);

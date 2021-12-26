@@ -12,7 +12,7 @@ const HeadComponent = () => (
       content={brand.starter.desc}
     />
     {/* Favicon */}
-    <link rel="shortcut icon" href="/favicons/favicon.ico" />
+    <link rel="icon" href="/favicons/favicon.ico" />
     <link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-icon-57x57.png" />
     <link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-icon-60x60.png" />
     <link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-icon-72x72.png" />
@@ -37,6 +37,7 @@ const HeadComponent = () => (
     />
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link href="https://unpkg.com/ionicons@3.0.0/dist/css/ionicons.min.css" rel="stylesheet" />
     {/*  Facebook */}
     <meta property="author" content="luxi" />
     <meta property="og:site_name" content="luxi.ux-maestro.com" />

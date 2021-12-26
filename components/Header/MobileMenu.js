@@ -67,7 +67,6 @@ function MobileMenu(props) {
   );
 }
 
-
 MobileMenu.propTypes = {
   toggleDrawer: PropTypes.func.isRequired,
   open: PropTypes.bool.isRequired,

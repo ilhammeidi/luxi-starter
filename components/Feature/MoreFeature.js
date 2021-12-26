@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import ReactWOW from 'react-wow';
+import ScrollAnimation from 'react-scroll-animation-wrapper';
 import useStyles from './feature-style';
 import { useTextAlign } from '~/theme/common';
 import imgAPI from '~/public/images/imgAPI';
@@ -15,56 +15,56 @@ function MainFeature() {
       <Grid container spacing={6}>
         <Grid md={6} item>
           <div className={classes.featureItem}>
-            <ReactWOW animation="fadeInLeft" duration="0.6s">
+            <ScrollAnimation animateOnce animateIn="fadeInLeft" duration={0.6}>
               <Typography variant="h3" className={classes.title}>
                 Lorem ipsum dolor
               </Typography>
-            </ReactWOW>
-            <ReactWOW animation="fadeInLeft" delay="0.3s" duration="0.6s">
+            </ScrollAnimation>
+            <ScrollAnimation animateOnce animateIn="fadeInLeft" delay={300} duration={0.6}>
               <Typography variant="body1" className={classes.text}>
                 Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus.
               </Typography>
-            </ReactWOW>
+            </ScrollAnimation>
           </div>
         </Grid>
         <Grid md={6} item>
           <div className={classes.featureItem}>
-            <ReactWOW animation="zoomIn" delay="0.3s" duration="0.6s">
+            <ScrollAnimation animateOnce animateIn="zoomIn" delay={300} duration={0.6}>
               <div className={classes.deco1} />
-            </ReactWOW>
-            <ReactWOW animation="fadeInRight" delay="0.5s" duration="0.6s">
+            </ScrollAnimation>
+            <ScrollAnimation animateOnce animateIn="fadeInRight" delay={500} duration={0.6}>
               <figure className={classes.img}>
                 <img src={imgAPI.photo[5]} alt="img" />
               </figure>
-            </ReactWOW>
+            </ScrollAnimation>
           </div>
         </Grid>
       </Grid>
       <Grid container spacing={6}>
         <Grid md={6} item>
           <div className={classes.featureItem}>
-            <ReactWOW animation="zoomIn" delay="0.3s" duration="0.6s">
+            <ScrollAnimation animateOnce animateIn="zoomIn" delay={300} duration={0.6}>
               <div className={classes.deco1} />
-            </ReactWOW>
-            <ReactWOW animation="fadeInLeft" delay="0.5s" duration="0.6s">
+            </ScrollAnimation>
+            <ScrollAnimation animateOnce animateIn="fadeInLeft" delay={500} duration={0.6}>
               <figure className={classes.img}>
                 <img src={imgAPI.photo[5]} alt="img" />
               </figure>
-            </ReactWOW>
+            </ScrollAnimation>
           </div>
         </Grid>
         <Grid md={6} item>
           <div className={classes.featureItem}>
-            <ReactWOW animation="fadeInRight" duration="0.6s">
+            <ScrollAnimation animateOnce animateIn="fadeInRight" duration={0.6}>
               <Typography variant="h3" className={classes.title}>
                 Lorem ipsum dolor
               </Typography>
-            </ReactWOW>
-            <ReactWOW animation="fadeInRight" delay="0.3s" duration="0.6s">
+            </ScrollAnimation>
+            <ScrollAnimation animateOnce animateIn="fadeInRight" delay={300} duration={0.6}>
               <Typography variant="body1" className={classes.text}>
                 Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus.
               </Typography>
-            </ReactWOW>
+            </ScrollAnimation>
           </div>
         </Grid>
       </Grid>
@@ -72,24 +72,24 @@ function MainFeature() {
         <Grid md={12} item>
           <div className={classes.featureMore}>
             <div className={clsx(align.textCenter, classes.featureItem, classes.last)}>
-              <ReactWOW animation="fadeInUp" duration="0.6s">
+              <ScrollAnimation animateOnce animateIn="fadeInUp" duration={0.6}>
                 <Typography variant="h3" className={classes.title}>
                   Lorem ipsum dolor
                 </Typography>
-              </ReactWOW>
-              <ReactWOW animation="fadeInUp" delay="0.3s" duration="0.6s">
+              </ScrollAnimation>
+              <ScrollAnimation animateOnce animateIn="fadeInUp" delay={300} duration={0.6}>
                 <Typography variant="body1" className={classes.text}>
                   Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus.
                 </Typography>
-              </ReactWOW>
-              <ReactWOW animation="zoomIn" delay="0.3s" duration="0.6s">
+              </ScrollAnimation>
+              <ScrollAnimation animateOnce animateIn="zoomIn" delay={300} duration={0.6}>
                 <div className={classes.deco2} />
-              </ReactWOW>
-              <ReactWOW animation="fadeInUp" delay="0.5s" duration="0.6s">
+              </ScrollAnimation>
+              <ScrollAnimation animateOnce animateIn="fadeInUp" delay={500} duration={0.6}>
                 <figure className={classes.imgFull}>
                   <img src={imgAPI.photo[5]} alt="img" />
                 </figure>
-              </ReactWOW>
+              </ScrollAnimation>
             </div>
           </div>
         </Grid>

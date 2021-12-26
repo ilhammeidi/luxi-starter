@@ -1,5 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles';
-import { fade, darken } from '@material-ui/core/styles/colorManipulator';
+import { makeStyles, alpha, darken } from '@material-ui/core/styles';
 
 const contactStyles = makeStyles(theme => ({
   title: {},
@@ -35,7 +34,7 @@ const contactStyles = makeStyles(theme => ({
     borderRadius: 10,
     overflow: 'hidden',
     position: 'relative',
-    background: fade(theme.palette.background.paper, 0.7),
+    background: alpha(theme.palette.background.paper, 0.7),
     boxShadow: '0 0 12px 2px rgba(0, 0, 0, 0.05)',
   },
   desc: {
@@ -74,14 +73,14 @@ const contactStyles = makeStyles(theme => ({
         color: theme.palette.common.white,
       },
       '& > div': {
-        border: `1px solid ${fade(theme.palette.primary.light, 0.5)}`,
+        border: `1px solid ${alpha(theme.palette.primary.light, 0.5)}`,
         '& input': {
           color: theme.palette.common.white,
           '&:focus': {
-            background: fade(theme.palette.text.hint, 0.2)
+            background: alpha(theme.palette.text.hint, 0.2)
           },
           '&:hover': {
-            background: fade(theme.palette.text.hint, 0.2)
+            background: alpha(theme.palette.text.hint, 0.2)
           }
         },
       }

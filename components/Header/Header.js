@@ -12,7 +12,6 @@ import Scrollspy from 'react-scrollspy';
 import Settings from './Settings';
 import MobileMenu from './MobileMenu';
 import logo from '~/public/images/logo.svg';
-import '~/vendors/hamburger-menu.css';
 import useStyles from './header-style';
 import navMenu from './menu';
 

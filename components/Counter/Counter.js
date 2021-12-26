@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import CountUp from 'react-countup';
-import ReactWOW from 'react-wow';
+import ScrollAnimation from 'react-scroll-animation-wrapper';
 import Typography from '@material-ui/core/Typography';
-import IosLeafOutline from 'react-ionicons/lib/IosLeafOutline';
-import IosBulbOutline from 'react-ionicons/lib/IosBulbOutline';
-import IosIonitronOutline from 'react-ionicons/lib/IosIonitronOutline';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import useStyles from './counter-style';
@@ -12,55 +9,60 @@ import useStyles from './counter-style';
 function Counter() {
   const classes = useStyles();
   const [play, setPlay] = useState(false);
+
   const countup = (val, isPlay) => (
     <span>
       {isPlay ? <CountUp end={val} /> : 0}
     </span>
   );
-  const handlePlay = () => {
-    setTimeout(() => { setPlay(true); }, 500);
+
+  const handlePlay = visible => {
+    if (visible.inViewport) {
+      setTimeout(() => { setPlay(true); }, 500);
+    }
   };
+
   return (
     <div className={classes.counterWrap}>
       <Container fixed>
-        <Grid container justify="center" alignItems="center" className={classes.root} spacing={6}>
+        <Grid container justifyContent="center" alignItems="center" className={classes.root} spacing={6}>
           <Grid md={4} item>
-            <ReactWOW animation="fadeIn" offset={300} callback={handlePlay}>
+            <ScrollAnimation animateOnce animateIn="fadeIn" offset={1500} afterAnimatedIn={handlePlay}>
               <div className={classes.counterItem}>
-                <IosLeafOutline />
+                <i className="icon ion-ios-leaf-outline" />
                 <div className={classes.text}>
                   <Typography variant="h4">
                     {countup(123, play)}
                   </Typography>
                   <Typography variant="h6">
-                    Lorem
+                    Lorem Ipsum dolor
                   </Typography>
                 </div>
               </div>
-            </ReactWOW>
+            </ScrollAnimation>
           </Grid>
           <Grid md={4} item>
             <div className={classes.counterItem}>
-              <IosBulbOutline />
+              <i className="icon ion-ios-bulb-outline" />
               <div className={classes.text}>
                 <Typography variant="h4">
                   {countup(456, play)}
                 </Typography>
                 <Typography variant="h6">
-                  Lorem
+                  Pellentesque ac bibendum
                 </Typography>
               </div>
             </div>
           </Grid>
           <Grid md={4} item>
             <div className={classes.counterItem}>
-              <IosIonitronOutline />
+              <i className="icon ion-ios-globe-outline" />
               <div className={classes.text}>
                 <Typography variant="h4">
                   {countup(789, play)}
                 </Typography>
                 <Typography variant="h6">
-                  Lorem
+                  Consectetur adipiscing
                 </Typography>
               </div>
             </div>
