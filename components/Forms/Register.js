@@ -149,7 +149,6 @@ function Register(props) {
   );
 }
 
-
 Register.propTypes = {
   t: PropTypes.func.isRequired
 };
