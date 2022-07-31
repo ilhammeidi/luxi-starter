@@ -27,7 +27,7 @@ https://ilhammeidi.github.io/luxinext-doc/
 
 [GET IT NOW on Envato](https://themeforest.net/item/luxiren-react-js-landing-page-collection/25087071)
 
-[SEE DEMO](http://luxinext.ux-maestro.com/en)
+[SEE DEMO](http://luxiren.indisains.com)
 
 ### Installation
 
