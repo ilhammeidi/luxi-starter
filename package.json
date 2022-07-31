@@ -16,7 +16,7 @@
   "scripts": {
     "dev": "node index.js",
     "build": "next build",
-    "start": "NODE_ENV=production node index.js",
+    "start": "cross-env NODE_ENV=production node index.js",
     "export": "next export",
     "now-build": "next build && next export -o dist"
   },
@@ -29,6 +29,7 @@
     "animate.css": "^3.7.2",
     "babel-plugin-root-import": "^6.4.1",
     "clsx": "^1.0.4",
+    "cross-env": "^7.0.3",
     "express": "^4.17.1",
     "jss": "^10.3.0",
     "jss-rtl": "^0.3.0",
