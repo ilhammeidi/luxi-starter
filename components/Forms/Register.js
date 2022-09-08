@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 import clsx from 'clsx';
@@ -8,16 +7,16 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Grid from '@material-ui/core/Grid';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
-import { withTranslation } from '~/i18n';
+import { useTranslation } from 'next-i18next';
 import routeLink from '~/public/text/link';
 import SocialAuth from './SocialAuth';
 import Title from '../Title/TitleSecondary';
 import AuthFrame from './AuthFrame';
 import useStyles from './form-style';
 
-function Register(props) {
+function Register() {
   const classes = useStyles();
-  const { t } = props;
+  const { t } = useTranslation('common');
   const [values, setValues] = useState({
     name: '',
     email: '',
@@ -49,18 +48,18 @@ function Register(props) {
   };
 
   return (
-    <AuthFrame title={t('common:register_title')} subtitle={t('common:register_subtitle')}>
+    <AuthFrame title={t('register_title')} subtitle={t('register_subtitle')}>
       <div>
         <div className={classes.head}>
-          <Title align="left">{t('common:register')}</Title>
+          <Title align="left">{t('register')}</Title>
           <Button size="small" className={classes.buttonLink} href={routeLink.starter.login}>
             <Icon className={clsx(classes.icon, classes.signArrow)}>arrow_forward</Icon>
-            {t('common:register_already')}
+            {t('register_already')}
           </Button>
         </div>
         <SocialAuth />
         <div className={classes.separator}>
-          <Typography>{t('common:register_or')}</Typography>
+          <Typography>{t('register_or')}</Typography>
         </div>
         <ValidatorForm
           onError={errors => console.log(errors)}
@@ -71,7 +70,7 @@ function Register(props) {
               <TextValidator
                 variant="filled"
                 className={classes.input}
-                label={t('common:register_name')}
+                label={t('register_name')}
                 onChange={handleChange('name')}
                 name="name"
                 value={values.name}
@@ -83,7 +82,7 @@ function Register(props) {
               <TextValidator
                 variant="filled"
                 className={classes.input}
-                label={t('common:register_email')}
+                label={t('register_email')}
                 onChange={handleChange('email')}
                 name="email"
                 value={values.email}
@@ -96,7 +95,7 @@ function Register(props) {
                 variant="filled"
                 type="password"
                 className={classes.input}
-                label={t('common:register_password')}
+                label={t('register_password')}
                 validators={['required']}
                 onChange={handleChange('password')}
                 errorMessages={['This field is required']}
@@ -109,7 +108,7 @@ function Register(props) {
                 variant="filled"
                 type="password"
                 className={classes.input}
-                label={t('common:register_confirm')}
+                label={t('register_confirm')}
                 validators={['isPasswordMatch', 'required']}
                 errorMessages={['Password mismatch', 'this field is required']}
                 onChange={handleChange('confirmPassword')}
@@ -131,16 +130,16 @@ function Register(props) {
               )}
               label={(
                 <span>
-                  {t('common:form_terms')}
+                  {t('form_terms')}
                   &nbsp;
                   <a href="#">
-                    {t('common:form_privacy')}
+                    {t('form_privacy')}
                   </a>
                 </span>
               )}
             />
             <Button variant="contained" fullWidth type="submit" color="secondary" size="large">
-              {t('common:continue')}
+              {t('continue')}
             </Button>
           </div>
         </ValidatorForm>
@@ -149,8 +148,4 @@ function Register(props) {
   );
 }
 
-Register.propTypes = {
-  t: PropTypes.func.isRequired
-};
-
-export default withTranslation(['common'])(Register);
+export default Register;

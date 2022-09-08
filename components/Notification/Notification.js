@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Snackbar from '@material-ui/core/Snackbar';
 import SnackbarContent from '@material-ui/core/SnackbarContent';
+import { useTranslation } from 'next-i18next';
 import Slide from '@material-ui/core/Slide';
 import useStyles from './notification-style';
-import { withTranslation } from '~/i18n';
 
 function TransitionUp(props) {
   return <Slide {...props} direction="up" />;
 }
 
-function Notification(props) {
-  const { t } = props;
+function Notification() {
+  const { t } = useTranslation('common');
   const classes = useStyles();
   const [open, setOpen] = useState(true);
   const handleClose = () => {
@@ -33,13 +32,13 @@ function Notification(props) {
       onClose={handleClose}
     >
       <SnackbarContent
-        message={<Typography id="message-id">{t('common:notif_msg')}</Typography>}
+        message={<Typography id="message-id">{t('notif_msg')}</Typography>}
         classes={{
           action: classes.action
         }}
         action={(
           <Button key="undo" variant="contained" className={classes.button} onClick={handleClose}>
-            {t('common:accept')}
+            {t('accept')}
           </Button>
         )}
       />
@@ -47,8 +46,4 @@ function Notification(props) {
   );
 }
 
-Notification.propTypes = {
-  t: PropTypes.func.isRequired,
-};
-
-export default withTranslation(['common'])(Notification);
+export default Notification;

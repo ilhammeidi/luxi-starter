@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -10,12 +9,12 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Snackbar from '@material-ui/core/Snackbar';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
+import { useTranslation } from 'next-i18next';
 import routeLink from '~/public/text/link';
-import { withTranslation } from '~/i18n';
 import useStyles from './form-style';
 
-function Contact(props) {
-  const { t } = props;
+function Contact() {
+  const { t } = useTranslation('common');
   const classes = useStyles();
   const [values, setValues] = useState({
     name: '',
@@ -64,10 +63,10 @@ function Contact(props) {
       </IconButton>
       <Container maxWidth="md">
         <Typography variant="h3" gutterBottom>
-          {t('common:contact_title')}
+          {t('contact_title')}
         </Typography>
         <Typography className={classes.desc}>
-          {t('common:contact_subtitle')}
+          {t('contact_subtitle')}
         </Typography>
         <div className={classes.form}>
           <ValidatorForm
@@ -78,7 +77,7 @@ function Contact(props) {
               <Grid item sm={6} xs={12}>
                 <TextValidator
                   className={classes.input}
-                  label={t('common:form_name')}
+                  label={t('form_name')}
                   onChange={handleChange('name')}
                   name="Name"
                   value={values.name}
@@ -89,7 +88,7 @@ function Contact(props) {
               <Grid item sm={6} xs={12}>
                 <TextValidator
                   className={classes.input}
-                  label={t('common:form_email')}
+                  label={t('form_email')}
                   onChange={handleChange('email')}
                   name="Email"
                   value={values.email}
@@ -100,7 +99,7 @@ function Contact(props) {
               <Grid item sm={6} xs={12}>
                 <TextValidator
                   className={classes.input}
-                  label={t('common:form_phone')}
+                  label={t('form_phone')}
                   onChange={handleChange('phone')}
                   name="Phone"
                   value={values.phone}
@@ -109,7 +108,7 @@ function Contact(props) {
               <Grid item sm={6} xs={12}>
                 <TextValidator
                   className={classes.input}
-                  label={t('common:form_company')}
+                  label={t('form_company')}
                   onChange={handleChange('company')}
                   name="Company"
                   value={values.company}
@@ -120,7 +119,7 @@ function Contact(props) {
                   multiline
                   rows="6"
                   className={classes.input}
-                  label={t('common:form_message')}
+                  label={t('form_message')}
                   onChange={handleChange('message')}
                   name="Message"
                   value={values.message}
@@ -134,16 +133,16 @@ function Contact(props) {
                 }
                 label={(
                   <span>
-                    {t('common:form_terms')}
+                    {t('form_terms')}
                     <br />
                     <a href="#">
-                      {t('common:form_privacy')}
+                      {t('form_privacy')}
                     </a>
                   </span>
                 )}
               />
               <Button variant="outlined" type="submit" color="primary" size="large">
-                {t('common:form_send')}
+                {t('form_send')}
                 <SendIcon className={classes.rightIcon} />
               </Button>
             </div>
@@ -154,8 +153,4 @@ function Contact(props) {
   );
 }
 
-Contact.propTypes = {
-  t: PropTypes.func.isRequired
-};
-
-export default withTranslation(['common'])(Contact);
+export default Contact;

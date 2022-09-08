@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import Scrollspy from 'react-scrollspy';
 import Fab from '@material-ui/core/Fab';
 import ArrowIcon from '@material-ui/icons/ArrowUpward';
 import Tooltip from '@material-ui/core/Tooltip';
-import { withTranslation } from '~/i18n';
+import { useTranslation } from 'next-i18next';
 import navMenu from '../Header/menu';
 import useStyles from './pagenav-style';
 
@@ -22,8 +21,8 @@ const LinkBtn = React.forwardRef(function LinkBtn(props, ref) { // eslint-disabl
   return <AnchorLink to={props.to} {...props} />; // eslint-disable-line
 });
 
-function PageNav(props) {
-  const { t } = props;
+function PageNav() {
+  const { t } = useTranslation('common');
   const [show, setShow] = useState(false);
   let flagShow = false;
 
@@ -77,7 +76,7 @@ function PageNav(props) {
               data-id={item.id}
             >
               <Tooltip
-                title={t('starter-landing:header_' + item.name)}
+                title={t('starter-landing.header_' + item.name)}
                 placement="left"
                 classes={{
                   tooltip: classes.tooltip
@@ -93,8 +92,4 @@ function PageNav(props) {
   );
 }
 
-PageNav.propTypes = {
-  t: PropTypes.func.isRequired,
-};
-
-export default withTranslation(['starter-landing'])(PageNav);
+export default PageNav;

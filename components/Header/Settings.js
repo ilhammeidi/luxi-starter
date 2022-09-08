@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'next-i18next';
 import clsx from 'clsx';
 import Popover from '@material-ui/core/Popover';
 import IconButton from '@material-ui/core/IconButton';
@@ -15,19 +16,84 @@ import Switch from '@material-ui/core/Switch';
 import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 import useStyles from './header-style';
-import { i18n, withTranslation } from '~/i18n';
+import languageDetector from '../../lib/languageDetector';
+import i18nextConfig from '../../next-i18next.config';
 
 let themeType = 'light';
 if (typeof Storage !== 'undefined') {
   themeType = localStorage.getItem('luxiTheme') || 'light';
 }
 
+const LanguageSwitchLink = ({
+  locale,
+  checked,
+  toggleDir,
+  ...rest
+}) => {
+  const router = useRouter();
+  const { t } = useTranslation('common');
+
+  let href = rest.href || router.asPath;
+  let pName = router.pathname;
+  Object.keys(router.query).forEach((k) => {
+    if (k === 'locale') {
+      pName = pName.replace(`[${k}]`, locale);
+      return;
+    }
+    pName = pName.replace(`[${k}]`, router.query[k]);
+  });
+  if (locale) {
+    href = rest.href ? `/${locale}${rest.href}` : pName;
+  }
+
+  const handleChangeLang = lang => {
+    languageDetector.cache(lang);
+    if (lang === 'ar') {
+      toggleDir('rtl');
+    } else {
+      toggleDir('ltr');
+    }
+  };
+
+  return (
+    <Link href={href}>
+      <ListItem
+        role={undefined}
+        dense
+        button
+        onClick={() => handleChangeLang(locale)}
+      >
+        <ListItemIcon>
+          <i className={locale} />
+        </ListItemIcon>
+        <ListItemText primary={t(locale)} />
+        {checked && (
+          <ListItemSecondaryAction>
+            <CheckIcon color="primary" />
+          </ListItemSecondaryAction>
+        )}
+      </ListItem>
+    </Link>
+  );
+};
+
+LanguageSwitchLink.propTypes = {
+  locale: PropTypes.string.isRequired,
+  checked: PropTypes.bool.isRequired,
+  toggleDir: PropTypes.func.isRequired,
+};
+
 function Settings(props) {
   const [ctn, setCtn] = useState(null);
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);
   const [isDark, setDark] = useState(themeType === 'dark');
+
+  const router = useRouter();
+  const currentLocale = router.query.locale || i18nextConfig.i18n.defaultLocale;
 
   function handleClick(event) {
     setAnchorEl(event.currentTarget);
@@ -41,16 +107,6 @@ function Settings(props) {
     setDark(!isDark);
     props.toggleDark();
   };
-
-  function handleChangeLang(lang) {
-    if (lang === 'ara') {
-      i18n.changeLanguage('ara');
-      props.toggleDir('rtl');
-    } else {
-      i18n.changeLanguage(lang);
-      props.toggleDir('ltr');
-    }
-  }
 
   useEffect(() => {
     setCtn(document.getElementById('main-wrap'));
@@ -121,24 +177,13 @@ function Settings(props) {
             </ListSubheader>
           )}
         >
-          {i18n.options.allLanguages && i18n.options.allLanguages.map(val => (
-            <ListItem
-              key={val}
-              role={undefined}
-              dense
-              button
-              onClick={() => handleChangeLang(val)}
-            >
-              <ListItemIcon>
-                <i className={val} />
-              </ListItemIcon>
-              <ListItemText primary={props.t('common:' + val)} />
-              {i18n.language === val && (
-                <ListItemSecondaryAction>
-                  <CheckIcon color="primary" />
-                </ListItemSecondaryAction>
-              )}
-            </ListItem>
+          {i18nextConfig.i18n.locales.map((locale) => (
+            <LanguageSwitchLink
+              locale={locale}
+              key={locale}
+              checked={locale === currentLocale}
+              toggleDir={props.toggleDir}
+            />
           ))}
         </List>
       </Popover>
@@ -149,7 +194,6 @@ function Settings(props) {
 Settings.propTypes = {
   toggleDark: PropTypes.func.isRequired,
   toggleDir: PropTypes.func.isRequired,
-  t: PropTypes.func.isRequired,
 };
 
-export default withTranslation(['common'])(Settings);
+export default Settings;

@@ -16,9 +16,12 @@ import Select from '@material-ui/core/Select';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import MenuItem from '@material-ui/core/MenuItem';
 import IconButton from '@material-ui/core/IconButton';
-import { i18n, withTranslation } from '~/i18n';
+import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
 import logo from '~/public/images/logo.svg';
 import brand from '~/public/text/brand';
+import languageDetector from '../../lib/languageDetector';
+import i18nextConfig from '../../next-i18next.config';
 import { useTextAlign } from '~/theme/common';
 import useStyles from './footer-style';
 
@@ -57,29 +60,44 @@ function Footer(props) {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   // Translation Function
-  const { t } = props;
+  const router = useRouter();
+  const { t, i18n } = useTranslation('common');
 
   const classes = useStyles();
   const align = useTextAlign();
   const [values, setValues] = useState({
-    lang: 'eng'
+    lang: i18n.language
   });
 
   useEffect(() => {
-    setValues({ lang: i18n.language });
     setCtn(document.getElementById('main-wrap'));
   }, []);
 
   function handleChange(event) {
+    const lang = event.target.value;
+    let href = router.asPath;
+    let pName = router.pathname;
+    Object.keys(router.query).forEach((k) => {
+      if (k === 'locale') {
+        pName = pName.replace(`[${k}]`, lang);
+        return;
+      }
+      pName = pName.replace(`[${k}]`, router.query[k]);
+    });
+    if (lang) {
+      href = pName;
+    }
+
     setValues(oldValues => ({
       ...oldValues,
-      [event.target.name]: event.target.value,
+      [event.target.name]: lang,
     }));
-    if (event.target.value === 'ar') {
-      i18n.changeLanguage('ar');
+
+    router.push(href);
+    languageDetector.cache(lang);
+    if (lang === 'ar') {
       props.toggleDir('rtl');
     } else {
-      i18n.changeLanguage(event.target.value);
       props.toggleDir('ltr');
     }
   }
@@ -95,7 +113,7 @@ function Footer(props) {
             </Typography>
           </div>
           <Typography color="textPrimary" className={classes.footerDesc} gutterBottom>
-            {t('common:starter-landing.description_text')}
+            {t('starter-landing.description_text')}
           </Typography>
           {isDesktop && <Copyright />}
         </Grid>
@@ -184,12 +202,9 @@ function Footer(props) {
             className={classes.selectLang}
             input={<OutlinedInput labelWidth={200} name="lang" id="outlined-lang-simple" />}
           >
-            <MenuItem value="eng">English</MenuItem>
-            <MenuItem value="deu">Deutsch</MenuItem>
-            <MenuItem value="ara">العربيّة</MenuItem>
-            <MenuItem value="ind">Bahasa Indonesia</MenuItem>
-            <MenuItem value="prt">Português</MenuItem>
-            <MenuItem value="zho">简体中文</MenuItem>
+            {i18nextConfig.i18n.locales.map((locale) => (
+              <MenuItem key={locale} value={locale}>{t(locale)}</MenuItem>
+            ))}
           </Select>
         </Grid>
       </Grid>
@@ -205,7 +220,6 @@ function Footer(props) {
 }
 
 Footer.propTypes = {
-  t: PropTypes.func.isRequired,
   toggleDir: PropTypes.func,
 };
 
@@ -213,4 +227,4 @@ Footer.defaultProps = {
   toggleDir: () => {},
 };
 
-export default withTranslation(['starter-landing'])(Footer);
+export default Footer;

@@ -1,11 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import Slider from 'react-animated-slider';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+import { useTranslation } from 'next-i18next';
 import useStyles from './slider-style';
-import { withTranslation } from '~/i18n';
 import imgAPI from '~/public/images/imgAPI';
 
 const content = [
@@ -32,9 +31,9 @@ const content = [
   }
 ];
 
-function AnimateSlider(props) {
+function AnimateSlider() {
   const classes = useStyles();
-  const { t } = props;
+  const { t } = useTranslation('common');
   return (
     <div className={classes.heroContent}>
       <Slider className="slider-wrapper">
@@ -45,8 +44,8 @@ function AnimateSlider(props) {
             style={{ background: `url('${item.image}') no-repeat center center` }}
           >
             <div className="inner">
-              <Typography variant="h1">{t('common:' + item.title)}</Typography>
-              <Typography variant="body1">{t('common:starter-landing.description_text')}</Typography>
+              <Typography variant="h1">{t(item.title)}</Typography>
+              <Typography variant="body1">{t('starter-landing.description_text')}</Typography>
               <div className={classes.heroButtons}>
                 <Grid container spacing={2} justifyContent="center">
                   <Grid item>
@@ -76,12 +75,4 @@ function AnimateSlider(props) {
   );
 }
 
-AnimateSlider.propTypes = {
-  t: PropTypes.func.isRequired,
-};
-
-AnimateSlider.getInitialProps = async () => ({
-  namespacesRequired: ['common', 'starter-landing'],
-});
-
-export default withTranslation(['common', 'starter-landing'])(AnimateSlider);
+export default AnimateSlider;

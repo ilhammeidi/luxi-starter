@@ -11,22 +11,22 @@ const flagIcon = {
   top: 1,
   background: `url(${flag}) no-repeat transparent`,
   backgroundSize: '16px auto',
-  '&[class="ara"]': {
+  '&[class="ar"]': {
     backgroundPosition: '0 3px'
   },
-  '&[class="zho"]': {
+  '&[class="zh"]': {
     backgroundPosition: '0 -12px'
   },
-  '&[class="eng"]': {
+  '&[class="en"]': {
     backgroundPosition: '0 -28px'
   },
-  '&[class="deu"]': {
+  '&[class="de"]': {
     backgroundPosition: '0 -44px'
   },
-  '&[class="ind"]': {
+  '&[class="id"]': {
     backgroundPosition: '0 -62px'
   },
-  '&[class="prt"]': {
+  '&[class="pt"]': {
     backgroundPosition: '0 -79px'
   },
 };
@@ -96,7 +96,8 @@ const headerStyles = makeStyles(theme => ({
     '& img': {
       transition: 'all 0.3s ease',
       minWidth: '100%',
-      height: 48
+      height: 48,
+      marginRight: theme.spacing(10),
     }
   },
   active: {},

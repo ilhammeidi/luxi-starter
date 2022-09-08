@@ -4,12 +4,14 @@ import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import { withTranslation } from '~/i18n';
+import { useTranslation } from 'next-i18next';
 import useStyles from './error-style';
 
 function Error(props) {
   const classes = useStyles();
-  const { errCode, text, t } = props;
+  const { errCode, text } = props;
+  const { t } = useTranslation('common');
+
   return (
     <div className={classes.errorWrap}>
       <Container maxWidth="md">
@@ -43,7 +45,6 @@ function Error(props) {
 Error.propTypes = {
   errCode: PropTypes.string,
   text: PropTypes.string,
-  t: PropTypes.func.isRequired
 };
 
 Error.defaultProps = {
@@ -51,4 +52,4 @@ Error.defaultProps = {
   text: '',
 };
 
-export default withTranslation(['common'])(Error);
+export default Error;

@@ -13,7 +13,8 @@ import { PageTransition } from 'next-page-transitions';
 import rtl from 'jss-rtl';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import LoadingBar from 'react-top-loading-bar';
-import { i18n, appWithTranslation } from '../i18n';
+import { appWithTranslation } from 'next-i18next';
+import lngDetector from '../lib/languageDetector';
 import appTheme from '../theme/appTheme';
 /* import css vendors */
 import '~/vendors/hamburger-menu.css';
@@ -33,14 +34,16 @@ if (typeof Storage !== 'undefined') { // eslint-disable-line
 
 function MyApp(props) {
   const [loading, setLoading] = useState(0);
+  const curLang = lngDetector.detect();
   const [theme, setTheme] = useState({
     ...appTheme('burgundy', themeType),
-    direction: i18n.language === 'ara' ? 'rtl' : 'ltr'
+    direction: curLang === 'ar' ? 'rtl' : 'ltr'
   });
 
   useEffect(() => {
     // Set layout direction
-    document.dir = i18n.language === 'ara' ? 'rtl' : 'ltr';
+    document.dir = curLang === 'ar' ? 'rtl' : 'ltr';
+    document.documentElement.setAttribute('lang', curLang);
 
     // Remove preloader
     const preloader = document.getElementById('preloader');

@@ -14,10 +14,10 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "dev": "node index.js",
+    "dev": "next dev -p ${PORT:=3000}",
     "build": "next build",
-    "start": "cross-env NODE_ENV=production node index.js",
     "export": "next export",
+    "start": "next start -p ${PORT:=3000}",
     "now-build": "next build && next export -o dist"
   },
   "dependencies": {
@@ -30,11 +30,11 @@
     "babel-plugin-root-import": "^6.4.1",
     "clsx": "^1.0.4",
     "cross-env": "^7.0.3",
-    "express": "^4.17.1",
     "jss": "^10.3.0",
     "jss-rtl": "^0.3.0",
     "next": "^11.0.1",
-    "next-i18next": "^4.5.0",
+    "next-i18next": "10.0.1",
+    "next-language-detector": "1.0.0",
     "next-images": "^1.1.2",
     "next-page-transitions": "^1.0.0-beta.2",
     "pre-commit": "^1.2.2",
