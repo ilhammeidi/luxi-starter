@@ -33,6 +33,7 @@ if (typeof Storage !== 'undefined') { // eslint-disable-line
 }
 
 function MyApp(props) {
+  const { Component, pageProps, router } = props; // eslint-disable-line
   const [loading, setLoading] = useState(0);
   const curLang = lngDetector.detect();
   const [theme, setTheme] = useState({
@@ -44,6 +45,10 @@ function MyApp(props) {
     // Set layout direction
     document.dir = curLang === 'ar' ? 'rtl' : 'ltr';
     document.documentElement.setAttribute('lang', curLang);
+
+    // Enable this code below for Server Side Rendering/Translation (SSR)
+    // const { pathname, asPath, query } = router;
+    // router.push({ pathname, query }, asPath, { locale: curLang });
 
     // Remove preloader
     const preloader = document.getElementById('preloader');
@@ -85,7 +90,6 @@ function MyApp(props) {
   };
 
   const muiTheme = createTheme(theme);
-  const { Component, pageProps, router } = props; // eslint-disable-line
   const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
   return (
     <div>

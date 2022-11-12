@@ -14,10 +14,10 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "dev": "next dev -p ${PORT:=3000}",
-    "build": "next build",
+    "dev": "NODE_OPTIONS=--openssl-legacy-provider next dev -p 3000",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider next build",
     "export": "next export",
-    "start": "next start -p ${PORT:=3000}",
+    "start": "next start -p 3000",
     "now-build": "next build && next export -o dist"
   },
   "dependencies": {
