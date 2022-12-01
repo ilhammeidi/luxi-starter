@@ -14,8 +14,8 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "dev": "NODE_OPTIONS=--openssl-legacy-provider next dev -p 3000",
-    "build": "NODE_OPTIONS=--openssl-legacy-provider next build",
+    "dev": "cross-env NODE_OPTIONS=--openssl-legacy-provider next dev -p 3000",
+    "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider next build",
     "export": "next export",
     "start": "next start -p 3000",
     "now-build": "next build && next export -o dist"
