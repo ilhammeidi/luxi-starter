@@ -1,20 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'next-i18next';
-import clsx from 'clsx';
-import Popover from '@material-ui/core/Popover';
-import IconButton from '@material-ui/core/IconButton';
-import SettingsIcon from '@material-ui/icons/Settings';
-import List from '@material-ui/core/List';
-import ListSubheader from '@material-ui/core/ListSubheader';
-import ListItem from '@material-ui/core/ListItem';
-import Switch from '@material-ui/core/Switch';
-import Divider from '@material-ui/core/Divider';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
+import Popover from '@mui/material/Popover';
+import IconButton from '@mui/material/IconButton';
+import SettingsIcon from '@mui/icons-material/Settings';
+import List from '@mui/material/List';
+import ListSubheader from '@mui/material/ListSubheader';
+import ListItem from '@mui/material/ListItem';
+import Switch from '@mui/material/Switch';
+import Divider from '@mui/material/Divider';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
 import LanguageSwitch from '../LangSwitch/Menu';
 import useStyles from './header-style';
-import i18nextConfig from '../../next-i18next.config';
+import i18nextConfig from '~/next-i18next.config';
 
 let themeType = 'light';
 if (typeof Storage !== 'undefined') {
@@ -23,10 +22,10 @@ if (typeof Storage !== 'undefined') {
 
 function Settings(props) {
   const [ctn, setCtn] = useState(null);
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);
   const [isDark, setDark] = useState(themeType === 'dark');
-  const { t, i18n } = useTranslation('common');
+  const { i18n } = useTranslation('common');
 
   const currentLocale = i18n.language;
 
@@ -58,12 +57,13 @@ function Settings(props) {
         aria-label="Settings"
         onClick={handleClick}
         className={
-          clsx(
+          cx(
             classes.icon,
             open && classes.active,
             invert && classes.invert
           )
         }
+        size="large"
       >
         <SettingsIcon fontSize="inherit" />
       </IconButton>
@@ -88,14 +88,14 @@ function Settings(props) {
           aria-label="Mode-menu"
           subheader={(
             <ListSubheader component="div">
-              {t('starter-landing.header_theme')}
+              Theme
             </ListSubheader>
           )}
         >
           <ListItem>
             <Typography component="div">
               <Grid component="label" container alignItems="center" spacing={1}>
-                <Grid item>{t('starter-landing.header_light')}</Grid>
+                <Grid item>Light</Grid>
                 <Grid item>
                   <Switch
                     checked={isDark}
@@ -104,7 +104,7 @@ function Settings(props) {
                     inputProps={{ 'aria-label': 'checkbox' }}
                   />
                 </Grid>
-                <Grid item>{t('starter-landing.header_dark')}</Grid>
+                <Grid item>Dark</Grid>
               </Grid>
             </Typography>
           </ListItem>
@@ -116,7 +116,7 @@ function Settings(props) {
           aria-label="Language-menu"
           subheader={(
             <ListSubheader component="div">
-              {t('starter-landing.header_language')}
+              Language
             </ListSubheader>
           )}
         >
@@ -127,6 +127,7 @@ function Settings(props) {
               key={locale}
               checked={locale === currentLocale}
               toggleDir={props.toggleDir}
+              closePopup={handleClose}
             />
           ))}
         </List>

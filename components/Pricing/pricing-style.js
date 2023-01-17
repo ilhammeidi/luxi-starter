@@ -1,11 +1,11 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from 'tss-react/mui';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({ uniqId: 'pricing' })(theme => ({
   pricingWrap: {
     marginTop: theme.spacing(5)
   },
   cardHeader: {
-    backgroundColor: theme.palette.type === 'dark' ? theme.palette.grey[900] : theme.palette.grey[200],
+    backgroundColor: theme.palette.mode === 'dark' ? theme.palette.grey[900] : theme.palette.grey[200],
   },
   cardPricing: {
     display: 'flex',
@@ -15,4 +15,5 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+// TODO jss-to-tss-react codemod: usages of this hook outside of this file will not be converted.
 export default useStyles;

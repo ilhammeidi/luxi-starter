@@ -1,6 +1,7 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from 'tss-react/mui';
 
-export const useTextAlign = makeStyles({
+// TODO jss-to-tss-react codemod: usages of this hook outside of this file will not be converted.
+export const useTextAlign = makeStyles({ uniqId: 'textAlign' })({
   textCenter: {
     textAlign: 'center'
   },
@@ -12,7 +13,8 @@ export const useTextAlign = makeStyles({
   }
 });
 
-export const useFloat = makeStyles({
+// TODO jss-to-tss-react codemod: usages of this hook outside of this file will not be converted.
+export const useFloat = makeStyles({ uniqId: 'float' })({
   floatLeft: {
     float: 'left'
   },
@@ -21,7 +23,8 @@ export const useFloat = makeStyles({
   },
 });
 
-export const useText = makeStyles(theme => ({
+// TODO jss-to-tss-react codemod: usages of this hook outside of this file will not be converted.
+export const useText = makeStyles({ uniqId: 'text' })(theme => ({
   title: {
     fontWeight: theme.typography.fontWeightBold,
     fontSize: 48,
@@ -90,7 +93,8 @@ export const useText = makeStyles(theme => ({
   }
 }));
 
-export const useHidden = makeStyles(theme => ({
+// TODO jss-to-tss-react codemod: usages of this hook outside of this file will not be converted.
+export const useHidden = makeStyles({ uniqId: 'hidden' })(theme => ({
   lgDown: {
     [theme.breakpoints.down('lg')]: {
       display: 'none'

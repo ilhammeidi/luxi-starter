@@ -1,7 +1,7 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from 'tss-react/mui';
 
 const decoration = theme => ({
-  background: theme.palette.type === 'dark' ? theme.palette.primary.dark : theme.palette.primary.light,
+  background: theme.palette.mode === 'dark' ? theme.palette.primary.dark : theme.palette.primary.light,
   borderRadius: '50%',
   width: 250,
   height: 250,
@@ -11,7 +11,7 @@ const decoration = theme => ({
   opacity: 0.5
 });
 
-const featureStyles = makeStyles(theme => ({
+const featureStyles = makeStyles({ uniqId: 'feature' })((theme, _params, classes) => ({
   pageSection: {
     marginBottom: theme.spacing(20)
   },
@@ -22,28 +22,23 @@ const featureStyles = makeStyles(theme => ({
   featureList: {
     textAlign: 'center',
     '& h5': {
-      margin: `${theme.spacing(3)}px 0`
+      margin: `${theme.spacing(3)} 0`
     },
-    '& $icon': {
+    [`& .${classes.icon}`]: {
       fill: theme.palette.primary.main,
       width: 100,
       height: 100
     }
   },
-  title: {},
-  text: {},
-  img: {},
-  imgFull: {},
-  last: {},
   featureMore: {
     position: 'relative',
-    '& $title': {
+    [`& .${classes.title}`]: {
       marginBottom: theme.spacing(3)
     },
-    '& $text': {
+    [`& .${classes.text}`]: {
       fontSize: 22
     },
-    '& $img': {
+    [`& .${classes.img}`]: {
       position: 'relative',
       width: 400,
       maxWidth: '98%',
@@ -51,12 +46,12 @@ const featureStyles = makeStyles(theme => ({
         width: '100%'
       }
     },
-    '& $imgFull': {
+    [`& .${classes.imgFull}`]: {
       position: 'relative',
       textAlign: 'center',
       maxWidth: 800,
       margin: '0 auto',
-      [theme.breakpoints.down('sm')]: {
+      [theme.breakpoints.down('md')]: {
         maxWidth: '98%',
       },
       marginTop: theme.spacing(5),
@@ -68,7 +63,7 @@ const featureStyles = makeStyles(theme => ({
   featureItem: {
     position: 'relative',
     marginBottom: theme.spacing(20),
-    '&$last': {
+    [`&.${classes.last}`]: {
       marginBottom: 0,
     }
   },
@@ -90,7 +85,7 @@ const featureStyles = makeStyles(theme => ({
     top: 0,
     left: 0,
     zIndex: 0,
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('lg')]: {
       display: 'none'
     },
     '& figure > div': {
@@ -132,7 +127,7 @@ const featureStyles = makeStyles(theme => ({
   },
   parallaxDot: {
     top: -20,
-    fill: theme.palette.text.hint,
+    fill: theme.palette.text.disabled,
     width: 845,
     height: 1099,
     opacity: 0.4,
@@ -140,11 +135,11 @@ const featureStyles = makeStyles(theme => ({
   },
   parallaxTriangle: {
     top: 100,
-    outline: theme.palette.text.hint,
+    outline: theme.palette.text.disabled,
     opacity: 0.1,
     width: 902,
     height: 1042,
-    stroke: theme.palette.text.hint,
+    stroke: theme.palette.text.disabled,
     fill: 'transparent',
     strokeWidth: 50,
     right: -210
@@ -154,11 +149,12 @@ const featureStyles = makeStyles(theme => ({
     width: 600,
     height: 570,
     opacity: 0.1,
-    stroke: theme.palette.text.hint,
+    stroke: theme.palette.text.disabled,
     fill: 'transparent',
     strokeWidth: 40,
     right: 40
   },
 }));
 
+// TODO jss-to-tss-react codemod: usages of this hook outside of this file will not be converted.
 export default featureStyles;

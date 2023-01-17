@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Typography from '@material-ui/core/Typography';
-import clsx from 'clsx';
+import Typography from '@mui/material/Typography';
 import useStyles from './title-style';
 
 export default function Title(props) {
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const {
     caption,
     text,
@@ -25,7 +24,7 @@ export default function Title(props) {
     }
   };
   return (
-    <div className={clsx(classes.title, setAlign(align), dark && classes.dark)}>
+    <div className={cx(classes.title, setAlign(align), dark && classes.dark)}>
       <Typography display="block" variant="caption" className={classes.caption}>
         {caption}
       </Typography>

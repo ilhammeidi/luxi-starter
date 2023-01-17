@@ -1,6 +1,7 @@
-import { makeStyles, alpha } from '@material-ui/core/styles';
+import { alpha } from '@mui/material/styles';
+import { makeStyles } from 'tss-react/mui';
 
-const pagenav = makeStyles(theme => ({
+const pagenav = makeStyles({ uniqId: 'pagenav' })((theme, _params, classes) => ({
   show: {},
   fab: {
     transform: 'scale(0.5)',
@@ -34,8 +35,8 @@ const pagenav = makeStyles(theme => ({
       padding: theme.spacing(1, 1, 7),
       overflow: 'hidden'
     },
-    '&$show': {
-      '& $fab': {
+    [`&.${classes.show}`]: {
+      [`& .${classes.fab}`]: {
         opacity: 1,
         transform: 'scale(1)',
       }
@@ -85,4 +86,5 @@ const pagenav = makeStyles(theme => ({
   },
 }));
 
+// TODO jss-to-tss-react codemod: usages of this hook outside of this file will not be converted.
 export default pagenav;

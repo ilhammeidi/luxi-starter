@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import Grid from '@material-ui/core/Grid';
-import Icon from '@material-ui/core/Icon';
+import Paper from '@mui/material/Paper';
+import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
+import Icon from '@mui/material/Icon';
 import useStyles from './subscribe-style';
 
 export default function Pricing() {
-  const classes = useStyles();
+  const { classes } = useStyles();
   const [values, setValues] = useState({
     email: '',
   });

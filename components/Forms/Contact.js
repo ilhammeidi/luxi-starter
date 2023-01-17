@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Container from '@material-ui/core/Container';
-import SendIcon from '@material-ui/icons/Send';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import Snackbar from '@material-ui/core/Snackbar';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import Container from '@mui/material/Container';
+import SendIcon from '@mui/icons-material/Send';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+import Snackbar from '@mui/material/Snackbar';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 import { useTranslation } from 'next-i18next';
 import routeLink from '~/public/text/link';
@@ -15,7 +15,7 @@ import useStyles from './form-style';
 
 function Contact() {
   const { t } = useTranslation('common');
-  const classes = useStyles();
+  const { classes } = useStyles();
   const [values, setValues] = useState({
     name: '',
     email: '',
@@ -57,9 +57,11 @@ function Contact() {
         }}
         message={<span id="message-id">Message Sent</span>}
       />
-      <IconButton href={routeLink.starter.home} className={classes.backtohome}>
-        <i className="ion-ios-home-outline" />
-        <i className="ion-ios-arrow-round-back" />
+      <IconButton href={routeLink.starter.home} className={classes.backtohome} size="large">
+        <span>
+          <i className="ion-ios-home-outline" />
+          <i className="ion-ios-arrow-round-back" />
+        </span>
       </IconButton>
       <Container maxWidth="md">
         <Typography variant="h3" gutterBottom>

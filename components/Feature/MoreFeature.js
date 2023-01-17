@@ -1,17 +1,16 @@
 import React from 'react';
-import clsx from 'clsx';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
+import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Grid';
 import ScrollAnimation from 'react-scroll-animation-wrapper';
 import useStyles from './feature-style';
 import { useTextAlign } from '~/theme/common';
 import imgAPI from '~/public/images/imgAPI';
 
 function MainFeature() {
-  const classes = useStyles();
-  const align = useTextAlign();
+  const { classes, cx } = useStyles();
+  const { classes: align } = useTextAlign();
   return (
-    <div className={clsx(classes.featureMore)}>
+    <div className={cx(classes.featureMore)}>
       <Grid container spacing={6}>
         <Grid md={6} item>
           <div className={classes.featureItem}>
@@ -71,7 +70,7 @@ function MainFeature() {
       <Grid container className={classes.root} spacing={6}>
         <Grid md={12} item>
           <div className={classes.featureMore}>
-            <div className={clsx(align.textCenter, classes.featureItem, classes.last)}>
+            <div className={cx(align.textCenter, classes.featureItem, classes.last)}>
               <ScrollAnimation animateOnce animateIn="fadeInUp" duration={0.6}>
                 <Typography variant="h3" className={classes.title}>
                   Lorem ipsum dolor

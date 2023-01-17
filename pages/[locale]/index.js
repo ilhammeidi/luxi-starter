@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import clsx from 'clsx';
+import CssBaseline from '@mui/material/CssBaseline';
 import Head from 'next/head';
-import Hidden from '@material-ui/core/Hidden';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
+import Hidden from '@mui/material/Hidden';
+import { makeStyles } from 'tss-react/mui';
+import Container from '@mui/material/Container';
 // Use this below for Server Side Render/Translation (SSR)
 // import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 // Use this below for Static Site Generation (SSG)
@@ -23,18 +22,17 @@ import PageNav from '~/components/PageNav';
 import Notification from '~/components/Notification';
 import brand from '~/public/text/brand';
 
-const sectionMargin = margin => (margin * 15);
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({ uniqId: 'home' })(theme => ({
   mainWrap: {
     position: 'relative',
     width: '100%',
     overflow: 'hidden',
   },
   spaceBottom: {
-    marginBottom: sectionMargin(theme.spacing())
+    marginBottom: theme.spacing(15),
   },
   spaceTop: {
-    paddingTop: sectionMargin(theme.spacing())
+    paddingTop: theme.spacing(15)
   },
   containerWrap: {
     marginTop: theme.spacing(15)
@@ -42,14 +40,13 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function Landing(props) {
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { onToggleDark, onToggleDir } = props;
   return (
     <React.Fragment>
       <Head>
         <title>
-          { brand.starter.name }
-          &nbsp; - Home Page
+          { brand.starter.name + ' - Home Page' }
         </title>
       </Head>
       <CssBaseline />
@@ -65,7 +62,7 @@ function Landing(props) {
               <AnimateSlider />
             </Container>
           </section>
-          <section className={clsx(classes.spaceTop, classes.spaceBottom)} id="feature">
+          <section className={cx(classes.spaceTop, classes.spaceBottom)} id="feature">
             <Container fixed>
               <Feature />
             </Container>
@@ -79,18 +76,18 @@ function Landing(props) {
           <section className={classes.spaceTop} id="pricing">
             <Pricing />
           </section>
-          <section className={clsx(classes.spaceTop, classes.spaceBottomShort)} id="blog">
+          <section className={cx(classes.spaceTop, classes.spaceBottomShort)} id="blog">
             <Blog />
           </section>
           <section className={classes.spaceBottom} id="subscribe">
             <Subscribe />
           </section>
         </main>
-        <Hidden mdDown>
+        <Hidden lgDown>
           <PageNav />
         </Hidden>
         <Footer toggleDir={onToggleDir} />
-        <Hidden mdDown>
+        <Hidden lgDown>
           <Notification />
         </Hidden>
       </div>

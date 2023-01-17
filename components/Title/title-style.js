@@ -1,6 +1,6 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from 'tss-react/mui';
 
-const titleStyles = makeStyles(theme => ({
+const titleStyles = makeStyles({ uniqId: 'title' })((theme, _params, classes) => ({
   left: {
     textAlign: 'left',
     '&:after': {
@@ -22,15 +22,14 @@ const titleStyles = makeStyles(theme => ({
   },
   caption: {
     textTransform: 'uppercase',
-    color: theme.palette.type === 'dark' ? theme.palette.primary.light : theme.palette.primary.dark,
+    color: theme.palette.mode === 'dark' ? theme.palette.primary.light : theme.palette.primary.dark,
     fontWeight: theme.typography.fontWeightBold,
     fontSize: 16,
     marginBottom: theme.spacing(),
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       fontSize: 12
     }
   },
-  dark: {},
   title: {
     display: 'block',
     position: 'relative',
@@ -40,12 +39,12 @@ const titleStyles = makeStyles(theme => ({
       fontWeight: theme.typography.fontWeightBold,
       textTransform: 'capitalize',
       lineHeight: '32px',
-      [theme.breakpoints.down('sm')]: {
+      [theme.breakpoints.down('md')]: {
         fontSize: 22
       }
     },
-    '&$dark': {
-      '& $caption': {
+    [`&.${classes.dark}`]: {
+      [`& .${classes.caption}`]: {
         color: theme.palette.primary.light
       },
       '& h4': {
@@ -67,4 +66,5 @@ const titleStyles = makeStyles(theme => ({
   }
 }));
 
+// TODO jss-to-tss-react codemod: usages of this hook outside of this file will not be converted.
 export default titleStyles;

@@ -1,14 +1,19 @@
 // Enable this code below for Server Side Rendering/Translation (SSR)
 // const { i18n } = require('./next-i18next.config')
 const withImages = require('next-images');
-// const ESLintPlugin = require('eslint-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = withImages({
   // Enable this code below for Server Side Rendering/Translation (SSR)
   //  i18n,
-  useTrailingSlash: true,
+  trailingSlash: true,
   images: {
     disableStaticImages: true
+  },
+  eslint: {
+    // Warning: This allows production builds to successfully complete even if
+    // your project has ESLint errors.
+    ignoreDuringBuilds: true,
   },
   publicRuntimeConfig: {
     localeSubpaths: typeof process.env.LOCALE_SUBPATHS === 'string'
@@ -18,9 +23,9 @@ module.exports = withImages({
   webpack: (config, options) => {
     cssModules: true,
     config.plugins.push(
-      // new ESLintPlugin({
-        // exclude: ['node_modules']
-      // })
+      //      new ESLintPlugin({
+      //        exclude: ['node_modules']
+      //      })
     );
     config.node = {}
     return config;

@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from 'tss-react/mui';
 import flag from '~/public/images/flag-logo.png';
 
 const flagIcon = {
@@ -31,7 +31,7 @@ const flagIcon = {
   },
 };
 
-const headerStyles = makeStyles(theme => ({
+const headerStyles = makeStyles({ uniqId: 'header' })((theme, _params, classes) => ({
   '@keyframes slideRight': {
     from: {
       opacity: 0,
@@ -50,14 +50,15 @@ const headerStyles = makeStyles(theme => ({
     background: theme.palette.background.paper,
     boxShadow: 'none',
     transition: 'all 0.3s ease',
-    '& > *': {
-      [theme.breakpoints.down('md')]: {
+    '> *': {
+      [theme.breakpoints.down('lg')]: {
         paddingLeft: 0
       }
     },
-    '&$fixed': {
+    [`&.${classes.fixed}`]: {
       boxShadow: theme.shadows[2],
-      '& $logo': {
+      zIndex: 100,
+      [`& .${classes.logo}`]: {
         '& img': {
           height: 32,
         }
@@ -65,11 +66,11 @@ const headerStyles = makeStyles(theme => ({
       '& nav': {
         padding: theme.spacing(1, 0),
       },
-      '& $vDivider': {
+      [`& .${classes.vDivider}`]: {
         minHeight: theme.spacing(3)
       }
     },
-    '&$openDrawer': {
+    [`&.${classes.openDrawer}`]: {
       zIndex: 1600,
       boxShadow: 'none',
     }
@@ -82,7 +83,7 @@ const headerStyles = makeStyles(theme => ({
       transition: 'all 0.3s ease',
       alignItems: 'center',
       padding: theme.spacing(2),
-      [theme.breakpoints.down('md')]: {
+      [theme.breakpoints.down('lg')]: {
         padding: theme.spacing(2, 0),
       },
       display: 'flex'
@@ -103,7 +104,7 @@ const headerStyles = makeStyles(theme => ({
   active: {},
   navMenu: {
     [theme.breakpoints.up('lg')]: {
-      '& > *': {
+      '> *': {
         margin: theme.spacing(0, 1),
       },
     },
@@ -114,7 +115,13 @@ const headerStyles = makeStyles(theme => ({
         listStyle: 'none',
         position: 'relative',
         display: 'inline-block',
+        '& a': {
+          color: theme.palette.text.primary
+        },
         '&[class="active"]': {
+          '& a': {
+            color: theme.palette.primary.main,
+          },
           '&:after': {
             content: '""',
             position: 'absolute',
@@ -126,17 +133,25 @@ const headerStyles = makeStyles(theme => ({
           }
         }
       }
-    }
+    },
   },
   userMenu: {
-    '& > a': {
+    '> a': {
       margin: theme.spacing(0, 1),
     }
   },
   langMenu: {
     '& i': {
       ...flagIcon
-    }
+    },
+    '& a': {
+      textDecoration: 'none',
+      color: 'inherit',
+      '& [class*="flag"]': {
+        minWidth: 0,
+        paddingRight: theme.spacing()
+      }
+    },
   },
   vDivider: {
     margin: theme.spacing(0, 1),
@@ -144,17 +159,14 @@ const headerStyles = makeStyles(theme => ({
     height: '100%',
     minHeight: theme.spacing(6)
   },
-  icon: {},
   setting: {
-    '& $icon': {
+    [`& .${classes.icon}`]: {
       transition: 'all 0.3s ease'
     },
-    '& $active': {
+    [`& .${classes.active}`]: {
       transform: 'rotate(30deg)'
     }
   },
-  bar: {},
-  menu: {},
   paperNav: {
     width: '100%',
     [theme.breakpoints.up(680)]: {
@@ -163,7 +175,7 @@ const headerStyles = makeStyles(theme => ({
   },
   mobileMenu: {
     marginRight: theme.spacing(),
-    '& $bar': {
+    [`& .${classes.bar}`]: {
       backgroundColor: theme.palette.text.secondary,
       '&:after, &:before': {
         backgroundColor: theme.palette.text.secondary,
@@ -172,7 +184,7 @@ const headerStyles = makeStyles(theme => ({
   },
   mobileNav: {
     background: theme.palette.background.paper,
-    '& $menu': {
+    [`& .${classes.menu}`]: {
       padding: theme.spacing(0, 2),
       overflow: 'auto',
       top: 80,
@@ -193,4 +205,5 @@ const headerStyles = makeStyles(theme => ({
   }
 }));
 
+// TODO jss-to-tss-react codemod: usages of this hook outside of this file will not be converted.
 export default headerStyles;

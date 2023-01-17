@@ -1,6 +1,6 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from 'tss-react/mui';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({ uniqId: 'error' })(theme => ({
   errorWrap: {
     width: '100%',
     minHeight: '90vh',
@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
   },
   deco: {
     position: 'relative',
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('lg')]: {
       height: 320,
     },
     '& h3': {
@@ -45,7 +45,7 @@ const useStyles = makeStyles(theme => ({
       borderLeft: `1px solid ${theme.palette.divider}`,
       paddingLeft: theme.spacing(5),
     },
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       textAlign: 'center'
     },
     '& h4': {
@@ -62,4 +62,5 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+// TODO jss-to-tss-react codemod: usages of this hook outside of this file will not be converted.
 export default useStyles;

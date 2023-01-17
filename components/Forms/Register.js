@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import Button from '@material-ui/core/Button';
-import Icon from '@material-ui/core/Icon';
-import clsx from 'clsx';
-import Typography from '@material-ui/core/Typography';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Grid from '@material-ui/core/Grid';
+import Button from '@mui/material/Button';
+import Icon from '@mui/material/Icon';
+import Typography from '@mui/material/Typography';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import Grid from '@mui/material/Grid';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 import { useTranslation } from 'next-i18next';
 import routeLink from '~/public/text/link';
@@ -15,7 +14,7 @@ import AuthFrame from './AuthFrame';
 import useStyles from './form-style';
 
 function Register() {
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { t } = useTranslation('common');
   const [values, setValues] = useState({
     name: '',
@@ -53,7 +52,7 @@ function Register() {
         <div className={classes.head}>
           <Title align="left">{t('register')}</Title>
           <Button size="small" className={classes.buttonLink} href={routeLink.starter.login}>
-            <Icon className={clsx(classes.icon, classes.signArrow)}>arrow_forward</Icon>
+            <Icon className={cx(classes.icon, classes.signArrow)}>arrow_forward</Icon>
             {t('register_already')}
           </Button>
         </div>

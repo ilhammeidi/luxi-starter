@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from 'tss-react/mui';
 import { useTranslation } from 'next-i18next';
 // Use this below for Server Side Render/Translation (SSR)
 // import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
@@ -12,14 +12,14 @@ import Footer from '~/components/Footer';
 import Header from '~/components/Header';
 import brand from '~/public/text/brand';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({ uniqId: '404' })(theme => ({
   dedicatedPage: {
-    background: theme.palette.type === 'dark' ? theme.palette.background.default : theme.palette.background.paper,
+    background: theme.palette.mode === 'dark' ? theme.palette.background.default : theme.palette.background.paper,
   }
 }));
 
 function ErrorPage(props) {
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { onToggleDark, onToggleDir } = props;
   const { errorCode, stars } = props;
   const { t } = useTranslation('common');

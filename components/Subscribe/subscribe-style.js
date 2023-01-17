@@ -1,6 +1,6 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from 'tss-react/mui';
 
-const subscribeStyles = makeStyles(theme => ({
+const subscribeStyles = makeStyles({ uniqId: 'subscribe' })(theme => ({
   subscribeWrap: {
     maxWidth: 600,
     margin: theme.spacing(0, 2),
@@ -21,4 +21,5 @@ const subscribeStyles = makeStyles(theme => ({
   }
 }));
 
+// TODO jss-to-tss-react codemod: usages of this hook outside of this file will not be converted.
 export default subscribeStyles;

@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import LangIcon from '@material-ui/icons/Language';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import SelectMUI from '@material-ui/core/Select';
-import OutlinedInput from '@material-ui/core/OutlinedInput';
-import MenuItem from '@material-ui/core/MenuItem';
+import LangIcon from '@mui/icons-material/Language';
+import InputAdornment from '@mui/material/InputAdornment';
+import SelectMUI from '@mui/material/Select';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import MenuItem from '@mui/material/MenuItem';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import useStyles from '../Footer/footer-style';
-import languageDetector from '../../lib/languageDetector';
-import i18nextConfig from '../../next-i18next.config';
+import languageDetector from '~/lib/languageDetector';
+import i18nextConfig from '~/next-i18next.config';
 
 function SelectLang(props) {
   const [ctn, setCtn] = useState(null);
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   // Translation Function
   const router = useRouter();
@@ -74,7 +74,7 @@ function SelectLang(props) {
         </InputAdornment>
       )}
       className={classes.selectLang}
-      input={<OutlinedInput labelWidth={200} name="lang" id="outlined-lang-simple" />}
+      input={<OutlinedInput name="lang" id="outlined-lang-simple" />}
     >
       {i18nextConfig.i18n.locales.map((locale) => (
         <MenuItem key={locale} value={locale}>{t(locale)}</MenuItem>

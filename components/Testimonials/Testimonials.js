@@ -1,11 +1,11 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
-import Avatar from '@material-ui/core/Avatar';
+import Typography from '@mui/material/Typography';
+import Avatar from '@mui/material/Avatar';
 import Carousel from 'react-slick';
-import Paper from '@material-ui/core/Paper';
-import useStyle from './testi-style';
+import Paper from '@mui/material/Paper';
 import { useTextAlign } from '~/theme/common';
 import imgAPI from '~/public/images/imgAPI';
+import useStyles from './testi-style';
 
 const testiContent = [
   {
@@ -46,8 +46,9 @@ const testiContent = [
 ];
 
 function Testimonials() {
-  const classes = useStyle();
-  const align = useTextAlign();
+  const { classes } = useStyles();
+  const { classes: align } = useTextAlign();
+
   const settings = {
     dots: true,
     infinite: true,

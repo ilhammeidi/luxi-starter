@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import CountUp from 'react-countup';
 import ScrollAnimation from 'react-scroll-animation-wrapper';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Container';
+import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Grid';
+import Container from '@mui/material/Container';
 import useStyles from './counter-style';
 
 function Counter() {
-  const classes = useStyles();
+  const { classes } = useStyles();
   const [play, setPlay] = useState(false);
 
   const countup = (val, isPlay) => (

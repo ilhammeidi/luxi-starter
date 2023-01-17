@@ -1,6 +1,6 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from 'tss-react/mui';
 
-const footerStyles = makeStyles(theme => ({
+const footerStyles = makeStyles({ uniqId: 'footer' })((theme, _params, classes) => ({
   link: {
     margin: theme.spacing(1, 1.5),
   },
@@ -26,14 +26,14 @@ const footerStyles = makeStyles(theme => ({
       }
     },
     '& p': {
-      [theme.breakpoints.down('sm')]: {
+      [theme.breakpoints.down('md')]: {
         padding: theme.spacing(0, 3),
         textAlign: 'center'
       }
     }
   },
   title: {
-    color: theme.palette.type === 'dark' ? theme.palette.primary.light : theme.palette.primary.dark,
+    color: theme.palette.mode === 'dark' ? theme.palette.primary.light : theme.palette.primary.dark,
     fontSize: 14,
     textTransform: 'uppercase',
     marginBottom: theme.spacing(3),
@@ -52,7 +52,7 @@ const footerStyles = makeStyles(theme => ({
     '& h6': {
       color: theme.palette.text.disabled,
     },
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       justifyContent: 'center',
       padding: theme.spacing(0, 3)
     }
@@ -68,12 +68,12 @@ const footerStyles = makeStyles(theme => ({
     marginBottom: theme.spacing(4),
     '& button': {
       margin: theme.spacing(),
-      color: theme.palette.type === 'dark' ? theme.palette.primary.light : theme.palette.primary.dark,
+      color: theme.palette.mode === 'dark' ? theme.palette.primary.light : theme.palette.primary.dark,
       background: theme.palette.divider,
       width: 36,
       height: 36,
       '& svg': {
-        fill: theme.palette.type === 'dark' ? theme.palette.primary.light : theme.palette.primary.dark,
+        fill: theme.palette.mode === 'dark' ? theme.palette.primary.light : theme.palette.primary.dark,
       }
     },
     '& svg': {
@@ -82,7 +82,7 @@ const footerStyles = makeStyles(theme => ({
     }
   },
   icon: {
-    '& + div': {
+    '+ div': {
       background: 'none !important',
       padding: theme.spacing(1.5, 1.5, 1.5, 4),
       width: 'calc(100% - 32px)',
@@ -93,23 +93,23 @@ const footerStyles = makeStyles(theme => ({
     width: 200,
     display: 'inherit',
     marginTop: theme.spacing(2),
-    color: theme.palette.type === 'dark' ? theme.palette.primary.light : theme.palette.primary.dark,
-    '& $icon': {
+    color: theme.palette.mode === 'dark' ? theme.palette.primary.light : theme.palette.primary.dark,
+    [`& .${classes.icon}`]: {
       top: 21,
       position: 'relative',
     },
     '& fieldset': {
       boxShadow: '0 1.5px 12px 2px rgba(0, 0, 0, 0.06)',
-      border: `1px solid ${theme.palette.type === 'dark' ? theme.palette.primary.light : theme.palette.primary.main} !important`,
+      border: `1px solid ${theme.palette.mode === 'dark' ? theme.palette.primary.light : theme.palette.primary.main} !important`,
       '& legend': {
         top: 6,
         position: 'relative',
-        borderTop: `1px solid ${theme.palette.type === 'dark' ? theme.palette.primary.light : theme.palette.primary.main}`
+        borderTop: `1px solid ${theme.palette.mode === 'dark' ? theme.palette.primary.light : theme.palette.primary.main}`
       }
     }
   },
   siteMapItem: {
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('lg')]: {
       paddingBottom: '0 !important',
       paddingTop: '0 !important',
     }
@@ -129,4 +129,5 @@ const footerStyles = makeStyles(theme => ({
   }
 }));
 
+// TODO jss-to-tss-react codemod: usages of this hook outside of this file will not be converted.
 export default footerStyles;

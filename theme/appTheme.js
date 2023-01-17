@@ -1,7 +1,8 @@
 import palette from './palette';
+
 const appTheme = (color, mode) => ({
   palette: {
-    type: mode,
+    mode,
     primary: palette[color].palette.primary,
     secondary: palette[color].palette.secondary,
     action: {
@@ -79,7 +80,7 @@ const appTheme = (color, mode) => ({
       '0px 11px 14px -7px rgba(128,128,128, 0.2),0px 23px 36px 3px rgba(128,128,128, 0.14),0px 9px 44px 8px rgba(128,128,128, 0.12)',
       '0px 11px 15px -7px rgba(128,128,128, 0.2),0px 24px 38px 3px rgba(128,128,128, 0.14),0px 9px 46px 8px rgba(128,128,128, 0.12)',
     ],
-  overrides: {
+  components: {
     MuiPaper: {
       rounded: {
         borderRadius: 12
@@ -112,7 +113,7 @@ const appTheme = (color, mode) => ({
     },
     MuiFormLabel: {
       root: {
-        '&$focused': {
+        '&.focused': {
           color: palette[color].palette.primary.main,
         }
       }

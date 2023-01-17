@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import Snackbar from '@material-ui/core/Snackbar';
-import SnackbarContent from '@material-ui/core/SnackbarContent';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Snackbar from '@mui/material/Snackbar';
+import SnackbarContent from '@mui/material/SnackbarContent';
 import { useTranslation } from 'next-i18next';
-import Slide from '@material-ui/core/Slide';
+import Slide from '@mui/material/Slide';
 import useStyles from './notification-style';
 
 function TransitionUp(props) {
@@ -13,7 +13,7 @@ function TransitionUp(props) {
 
 function Notification() {
   const { t } = useTranslation('common');
-  const classes = useStyles();
+  const { classes } = useStyles();
   const [open, setOpen] = useState(true);
   const handleClose = () => {
     setOpen(false);

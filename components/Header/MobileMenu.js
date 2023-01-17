@@ -1,16 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import clsx from 'clsx';
-import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
+import SwipeableDrawer from '@mui/material/SwipeableDrawer';
+import List from '@mui/material/List';
+import Divider from '@mui/material/Divider';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
 import useStyles from './header-style';
 import navMenu from './menu';
 
 function MobileMenu(props) {
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { toggleDrawer, open } = props;
   const SideList = () => (
     <div
@@ -19,7 +18,7 @@ function MobileMenu(props) {
       onClick={toggleDrawer}
       onKeyDown={toggleDrawer}
     >
-      <div className={clsx(classes.menu, open && classes.menuOpen)}>
+      <div className={cx(classes.menu, open && classes.menuOpen)}>
         <List>
           {navMenu.map((item, index) => (
             <ListItem

@@ -1,22 +1,23 @@
-import { makeStyles, alpha, darken } from '@material-ui/core/styles';
+import { alpha, darken } from '@mui/material/styles';
+import { makeStyles } from 'tss-react/mui';
 
-const contactStyles = makeStyles(theme => ({
+const contactStyles = makeStyles({ uniqId: 'form' })((theme, _params, classes) => ({
   title: {},
   pageWrap: {
     padding: theme.spacing(11, 5),
     position: 'relative',
     textAlign: 'center',
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       padding: theme.spacing(4, 0),
     },
-    '& $title': {
+    [`& .${classes.title}`]: {
       fontWeight: theme.typography.fontWeightBold,
-      [theme.breakpoints.down('xs')]: {
+      [theme.breakpoints.down('sm')]: {
         fontSize: 32
       }
     },
     '& a': {
-      color: theme.palette.type === 'dark' ? theme.palette.primary.light : theme.palette.primary.dark,
+      color: theme.palette.mode === 'dark' ? theme.palette.primary.light : theme.palette.primary.dark,
       textTransform: 'none',
       fontSize: 16,
       textDecoration: 'none',
@@ -41,34 +42,33 @@ const contactStyles = makeStyles(theme => ({
     fontSize: 20,
     textAlign: 'center',
     padding: theme.spacing(0, 15),
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       padding: theme.spacing(0, 5)
     },
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       padding: theme.spacing(0, 2),
       fontSize: 16
     }
   },
-  light: {},
   input: {
     width: '100%',
     '& label': {
       left: theme.spacing(0.5),
     },
-    '& > div': {
+    '> div': {
       overflow: 'hidden',
-      background: theme.palette.type === 'dark' ? 'rgba(255, 255, 255, 0.1)' : '#eeeeee',
+      background: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.1)' : '#eeeeee',
       '&:hover': {
         background: darken(theme.palette.background.paper, 0.1)
       },
-      '& input, textarea': {
+      'input, textarea': {
         paddingLeft: theme.spacing(2),
         '&:focus': {
           background: theme.palette.background.default
         },
       }
     },
-    '&$light': {
+    [`&.${classes.light}`]: {
       '& label': {
         color: theme.palette.common.white,
       },
@@ -77,10 +77,10 @@ const contactStyles = makeStyles(theme => ({
         '& input': {
           color: theme.palette.common.white,
           '&:focus': {
-            background: alpha(theme.palette.text.hint, 0.2)
+            background: alpha(theme.palette.text.disabled, 0.2)
           },
           '&:hover': {
-            background: alpha(theme.palette.text.hint, 0.2)
+            background: alpha(theme.palette.text.disabled, 0.2)
           }
         },
       }
@@ -91,10 +91,10 @@ const contactStyles = makeStyles(theme => ({
     position: 'relative',
     padding: theme.spacing(0, 15, 10),
     marginTop: theme.spacing(8),
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       padding: theme.spacing(0, 6, 10),
     },
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       padding: theme.spacing(0, 2, 10),
     },
   },
@@ -103,12 +103,11 @@ const contactStyles = makeStyles(theme => ({
     marginTop: theme.spacing(),
     justifyContent: 'space-between',
     alignItems: 'flex-start',
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
       alignItems: 'center'
     },
   },
-  flex: {},
   btnArea: {
     marginTop: theme.spacing(5),
     '& button': {
@@ -117,13 +116,13 @@ const contactStyles = makeStyles(theme => ({
     '& span': {
       '& a': {
         textDecoration: 'none !important',
-        color: theme.palette.type === 'dark' ? theme.palette.primary.light : theme.palette.primary.dark,
+        color: theme.palette.mode === 'dark' ? theme.palette.primary.light : theme.palette.primary.dark,
       }
     },
-    '&$flex': {
+    [`&.${classes.flex}`]: {
       display: 'flex',
       justifyContent: 'space-between',
-      [theme.breakpoints.down('sm')]: {
+      [theme.breakpoints.down('md')]: {
         display: 'block'
       }
     },
@@ -138,7 +137,7 @@ const contactStyles = makeStyles(theme => ({
     marginTop: 20,
     marginLeft: 20,
     zIndex: 20,
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('lg')]: {
       display: 'none'
     },
     '& svg': {
@@ -172,7 +171,7 @@ const contactStyles = makeStyles(theme => ({
     display: 'flex',
     alignItems: 'flex-end',
     marginBottom: theme.spacing(5),
-    '&$logoHeader': {
+    [`&.${classes.logoHeader}`]: {
       flexDirection: 'column',
       alignItems: 'center',
       position: 'relative',
@@ -182,7 +181,7 @@ const contactStyles = makeStyles(theme => ({
       width: 64,
       marginRight: theme.spacing()
     },
-    '& p, span': {
+    'p, span': {
       display: 'block',
       textTransform: 'lowercase',
       fontSize: 24,
@@ -196,7 +195,7 @@ const contactStyles = makeStyles(theme => ({
     justifyContent: 'space-between',
     alignItems: 'flex-end',
     marginBottom: theme.spacing(5),
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       marginTop: theme.spacing(2),
       justifyContent: 'center',
       '& a': {
@@ -204,7 +203,6 @@ const contactStyles = makeStyles(theme => ({
       }
     }
   },
-  signArrow: {},
   formWrap: {
     minHeight: 760,
     background: theme.palette.background.paper,
@@ -212,7 +210,7 @@ const contactStyles = makeStyles(theme => ({
     padding: theme.spacing(2),
     paddingBottom: theme.spacing(10),
     overflow: 'hidden',
-    '& $frmDeco': {
+    [`&.${classes.frmDeco}`]: {
       left: '58.333333%',
       transform: 'translateX(-72%)',
       bottom: '-75px'
@@ -224,7 +222,7 @@ const contactStyles = makeStyles(theme => ({
   socmedSideLogin: {
     display: 'flex',
     justifyContent: 'space-around',
-    '& > *': {
+    '> *': {
       color: theme.palette.common.white,
       width: 160,
       padding: theme.spacing(),
@@ -233,9 +231,9 @@ const contactStyles = makeStyles(theme => ({
       fill: theme.palette.common.white,
       marginRight: theme.spacing()
     },
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       display: 'block',
-      '& > *': {
+      '> *': {
         marginBottom: theme.spacing(2),
         width: '100%'
       }
@@ -260,19 +258,19 @@ const contactStyles = makeStyles(theme => ({
     }
   },
   separator: {
-    margin: `${theme.spacing(5)}px auto`,
+    margin: `${theme.spacing(5)} auto`,
     maxWidth: 340,
     minWidth: 256,
     textAlign: 'center',
     position: 'relative',
     '& p': {
-      [theme.breakpoints.down('xs')]: {
+      [theme.breakpoints.down('sm')]: {
         fontSize: 12
       },
     },
     '&:before, &:after': {
       content: '""',
-      borderTop: `1px solid ${theme.palette.text.hint}`,
+      borderTop: `1px solid ${theme.palette.text.disabled}`,
       top: '50%',
       position: 'absolute',
       width: '20%'
@@ -286,4 +284,5 @@ const contactStyles = makeStyles(theme => ({
   }
 }));
 
+// TODO jss-to-tss-react codemod: usages of this hook outside of this file will not be converted.
 export default contactStyles;

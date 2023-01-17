@@ -1,10 +1,9 @@
 import React from 'react';
-import clsx from 'clsx';
 import { Parallax, ParallaxProvider } from 'react-scroll-parallax';
 import useStyles from './feature-style';
 
 export default function ParallaxDeco() {
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   return (
     <div className={classes.parallaxWrap}>
       <ParallaxProvider>
@@ -18,7 +17,7 @@ export default function ParallaxDeco() {
               width={845}
               height={1099}
               className={
-                clsx(
+                cx(
                   classes.parallaxVertical,
                   classes.parallaxDot
                 )
@@ -36,7 +35,7 @@ export default function ParallaxDeco() {
               width={902}
               height={1042}
               className={
-                clsx(
+                cx(
                   classes.parallaxVertical,
                   classes.parallaxTriangle
                 )
@@ -54,7 +53,7 @@ export default function ParallaxDeco() {
               width={600}
               height={570}
               className={
-                clsx(
+                cx(
                   classes.parallaxVertical,
                   classes.parallaxCircle
                 )

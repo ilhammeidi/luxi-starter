@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import clsx from 'clsx';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import Scrollspy from 'react-scrollspy';
-import Fab from '@material-ui/core/Fab';
-import ArrowIcon from '@material-ui/icons/ArrowUpward';
-import Tooltip from '@material-ui/core/Tooltip';
-import { useTranslation } from 'next-i18next';
+import Fab from '@mui/material/Fab';
+import ArrowIcon from '@mui/icons-material/ArrowUpward';
+import Tooltip from '@mui/material/Tooltip';
 import navMenu from '../Header/menu';
 import useStyles from './pagenav-style';
 
@@ -22,7 +20,6 @@ const LinkBtn = React.forwardRef(function LinkBtn(props, ref) { // eslint-disabl
 });
 
 function PageNav() {
-  const { t } = useTranslation('common');
   const [show, setShow] = useState(false);
   let flagShow = false;
 
@@ -38,7 +35,7 @@ function PageNav() {
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
   }, []);
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const [menuList] = useState([
     createData(1, navMenu[0], '#' + navMenu[0].replace(/ /g, '_')),
     createData(2, navMenu[1], '#' + navMenu[1].replace(/ /g, '_')),
@@ -46,7 +43,7 @@ function PageNav() {
     createData(4, navMenu[3], '#' + navMenu[3].replace(/ /g, '_')),
   ]);
   return (
-    <div className={clsx(classes.pageNav, show && classes.show)}>
+    <div className={cx(classes.pageNav, show && classes.show)}>
       <Tooltip
         title="To Top"
         placement="left"
@@ -76,13 +73,15 @@ function PageNav() {
               data-id={item.id}
             >
               <Tooltip
-                title={t('starter-landing.header_' + item.name)}
+                title={item.name}
                 placement="left"
                 classes={{
                   tooltip: classes.tooltip
                 }}
               >
-                <AnchorLink href={item.url} />
+                <span>
+                  <AnchorLink href={item.url} />
+                </span>
               </Tooltip>
             </li>
           )) }

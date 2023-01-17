@@ -1,9 +1,9 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
+import Button from '@mui/material/Button';
 import useStyles from './form-style';
 
 function SocialAuth() {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   return (
     <section className={classes.socmedSideLogin}>
