@@ -44,23 +44,6 @@ function PageNav() {
   ]);
   return (
     <div className={cx(classes.pageNav, show && classes.show)}>
-      <Tooltip
-        title="To Top"
-        placement="left"
-        classes={{
-          tooltip: classes.tooltip
-        }}
-      >
-        <Fab
-          color="primary"
-          aria-label="To top"
-          component={LinkBtn}
-          href="#home"
-          className={classes.fab}
-        >
-          <ArrowIcon />
-        </Fab>
-      </Tooltip>
       <nav className={classes.sectionNav}>
         <Scrollspy
           items={navMenu}
@@ -87,6 +70,25 @@ function PageNav() {
           )) }
         </Scrollspy>
       </nav>
+      <Tooltip
+        title="To Top"
+        placement="left"
+        classes={{
+          tooltip: classes.tooltip
+        }}
+      >
+        <span>
+          <Fab
+            color="primary"
+            aria-label="To top"
+            component={LinkBtn}
+            href="#home"
+            className={classes.fab}
+          >
+            <ArrowIcon />
+          </Fab>
+        </span>
+      </Tooltip>
     </div>
   );
 }

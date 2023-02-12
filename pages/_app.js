@@ -18,7 +18,7 @@ import 'animate.css/animate.css';
 import '~/vendors/hamburger-menu.css';
 import '~/vendors/animate-slider.css';
 import '../vendors/animate-extends.css';
-import '../vendors/top-loading-bar.css';
+import '../vendors/react-top-loading-bar.css';
 import '../vendors/page-transition.css';
 import '../vendors/slick/slick.css';
 import '../vendors/slick/slick-theme.css';

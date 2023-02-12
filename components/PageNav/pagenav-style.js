@@ -7,7 +7,7 @@ const pagenav = makeStyles({ uniqId: 'pagenav' })((theme, _params, classes) => (
     transform: 'scale(0.5)',
     transition: 'all 0.5s ease',
     opacity: 0,
-    position: 'absolute',
+    position: 'relative',
     bottom: 0,
     right: 0,
     background: theme.palette.primary.light,
@@ -32,7 +32,6 @@ const pagenav = makeStyles({ uniqId: 'pagenav' })((theme, _params, classes) => (
       transition: 'height 0.5s ease',
       transitionDelay: '0.5s',
       height: 0,
-      padding: theme.spacing(1, 1, 7),
       overflow: 'hidden'
     },
     [`&.${classes.show}`]: {
@@ -42,7 +41,7 @@ const pagenav = makeStyles({ uniqId: 'pagenav' })((theme, _params, classes) => (
       }
     },
     '& ul': {
-      margin: '0 14px 16px 0',
+      margin: '8px 0 16px 22px',
       padding: 0,
       position: 'relative'
     },
@@ -60,8 +59,7 @@ const pagenav = makeStyles({ uniqId: 'pagenav' })((theme, _params, classes) => (
         border: `1px solid ${theme.palette.primary.dark}`,
         display: 'block',
         transition: 'all 0.4s ease',
-        borderRadius: 3,
-        transform: 'rotate(45deg)'
+        borderRadius: '50%',
       },
       '&[class="active"] a': {
         background: theme.palette.primary.dark,
@@ -86,5 +84,4 @@ const pagenav = makeStyles({ uniqId: 'pagenav' })((theme, _params, classes) => (
   },
 }));
 
-// TODO jss-to-tss-react codemod: usages of this hook outside of this file will not be converted.
 export default pagenav;

@@ -88,26 +88,15 @@ const featureStyles = makeStyles({ uniqId: 'feature' })((theme, _params, classes
     [theme.breakpoints.down('lg')]: {
       display: 'none'
     },
-    '& figure > div': {
-      height: 1000,
-      width: '100%',
-      position: 'relative',
-      top: 500,
-    }
   },
   bannerParallaxWrap: {
     height: 800,
     width: '100%',
     position: 'absolute',
     display: 'block',
-    '& figure': {
+    '& [class*="figure"]': {
       height: 800,
-      width: '100%',
-      display: 'block',
-      position: 'absolute',
-    },
-    '& figure > div': {
-      height: 800,
+      top: 500,
       width: '100%',
       display: 'block',
       position: 'absolute',

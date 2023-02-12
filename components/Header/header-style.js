@@ -115,13 +115,7 @@ const headerStyles = makeStyles({ uniqId: 'header' })((theme, _params, classes) 
         listStyle: 'none',
         position: 'relative',
         display: 'inline-block',
-        '& a': {
-          color: theme.palette.text.primary
-        },
         '&[class="active"]': {
-          '& a': {
-            color: theme.palette.primary.main,
-          },
           '&:after': {
             content: '""',
             position: 'absolute',

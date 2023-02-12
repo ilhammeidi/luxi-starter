@@ -9,8 +9,8 @@ export default function ParallaxDeco() {
       <ParallaxProvider>
         <div className={classes.bannerParallaxWrap}>
           <Parallax
-            y={[-40, 40]}
-            tagOuter="figure"
+            translateY={[-40, 40]}
+            className="figure"
           >
             <svg
               fill="#cccccc"
@@ -27,8 +27,8 @@ export default function ParallaxDeco() {
             </svg>
           </Parallax>
           <Parallax
-            y={[-50, 50]}
-            tagOuter="figure"
+            translateY={[-50, 50]}
+            className="figure"
           >
             <svg
               fill="#cccccc"
@@ -45,8 +45,8 @@ export default function ParallaxDeco() {
             </svg>
           </Parallax>
           <Parallax
-            y={[-50, 30]}
-            tagOuter="figure"
+            translateY={[-50, 30]}
+            className="figure"
           >
             <svg
               fill="#cccccc"
