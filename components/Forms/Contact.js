@@ -10,7 +10,8 @@ import Typography from '@mui/material/Typography';
 import Snackbar from '@mui/material/Snackbar';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 import { useTranslation } from 'next-i18next';
-import routeLink from '~/public/text/link';
+import Link from '../Link';
+import routeLink from 'public/text/link';
 import useStyles from './form-style';
 
 function Contact() {
@@ -57,7 +58,7 @@ function Contact() {
         }}
         message={<span id="message-id">Message Sent</span>}
       />
-      <IconButton href={routeLink.starter.home} className={classes.backtohome} size="large">
+      <IconButton component={Link} href={routeLink.starter.home} className={classes.backtohome} size="large">
         <span>
           <i className="ion-ios-home-outline" />
           <i className="ion-ios-arrow-round-back" />

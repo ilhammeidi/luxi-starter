@@ -3,8 +3,8 @@ import Typography from '@mui/material/Typography';
 import Avatar from '@mui/material/Avatar';
 import Carousel from 'react-slick';
 import Paper from '@mui/material/Paper';
-import { useTextAlign } from '~/theme/common';
-import imgAPI from '~/public/images/imgAPI';
+import { useTextAlign } from 'theme/common';
+import imgAPI from 'public/images/imgAPI';
 import useStyles from './testi-style';
 
 const testiContent = [

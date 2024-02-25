@@ -8,9 +8,10 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import Scrollspy from 'react-scrollspy';
+import Link from '../Link';
 import Settings from './Settings';
 import MobileMenu from './MobileMenu';
-import logo from '~/public/images/logo.svg';
+import logo from 'public/images/logo.svg';
 import useStyles from './header-style';
 import navMenu from './menu';
 
@@ -45,7 +46,7 @@ function Header(props) {
   }, []);
   const { classes, cx } = useStyles();
   const theme = useTheme();
-  const { onToggleDark, onToggleDir } = props;
+  const { onToggleDark, onToggleDir, invert } = props;
   const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
   const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
   const [menuList] = useState([
@@ -95,9 +96,15 @@ function Header(props) {
                 >
                   { menuList.map(item => (
                     <li key={item.id.toString()}>
-                      <Button component={LinkBtn} href={item.url}>
-                        {item.name}
-                      </Button>
+                      {invert ? (
+                        <Button component={Link} href={'/' + item.url}>
+                          {item.name}
+                        </Button>
+                      ) : (
+                        <Button component={LinkBtn} href={item.url}>
+                          {item.name}
+                        </Button>
+                      )}
                     </li>
                   )) }
                   <li>
@@ -121,7 +128,12 @@ function Header(props) {
 
 Header.propTypes = {
   onToggleDark: PropTypes.func.isRequired,
-  onToggleDir: PropTypes.func.isRequired
+  onToggleDir: PropTypes.func.isRequired,
+  invert: PropTypes.bool
+};
+
+Header.defaultProps = {
+  invert: false
 };
 
 export default Header;

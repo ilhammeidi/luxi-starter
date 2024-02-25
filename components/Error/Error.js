@@ -5,6 +5,7 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { useTranslation } from 'next-i18next';
+import Link from '../Link';
 import useStyles from './error-style';
 
 function Error(props) {
@@ -31,7 +32,7 @@ function Error(props) {
               <Typography>
                 {t('common:404_subtitle')}
               </Typography>
-              <Button variant="outlined" color="primary" href="/" size="large" className={classes.button}>
+              <Button component={Link} variant="outlined" color="primary" href="/" size="large" className={classes.button}>
                 {t('common:back')}
               </Button>
             </div>

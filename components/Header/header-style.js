@@ -1,5 +1,5 @@
 import { makeStyles } from 'tss-react/mui';
-import flag from '~/public/images/flag-logo.png';
+import flag from 'public/images/flag-logo.png';
 
 const flagIcon = {
   width: 16,

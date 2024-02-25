@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import CssBaseline from '@mui/material/CssBaseline';
 import Head from 'next/head';
@@ -8,19 +8,19 @@ import Container from '@mui/material/Container';
 // Use this below for Server Side Render/Translation (SSR)
 // import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 // Use this below for Static Site Generation (SSG)
-import { getStaticPaths, makeStaticProps } from '~/lib/getStatic';
-import Header from '~/components/Header';
-import AnimateSlider from '~/components/AnimateSlider';
-import Feature from '~/components/Feature';
-import Counter from '~/components/Counter';
-import Testimonials from '~/components/Testimonials';
-import Pricing from '~/components/Pricing';
-import Blog from '~/components/Blog';
-import Subscribe from '~/components/Subscribe';
-import Footer from '~/components/Footer';
-import PageNav from '~/components/PageNav';
-import Notification from '~/components/Notification';
-import brand from '~/public/text/brand';
+import { getStaticPaths, makeStaticProps } from 'lib/getStatic';
+import MainContainer from 'components/MainContainer';
+import AnimateSlider from 'components/AnimateSlider';
+import Feature from 'components/Feature';
+import Counter from 'components/Counter';
+import Testimonials from 'components/Testimonials';
+import Pricing from 'components/Pricing';
+import Blog from 'components/Blog';
+import Subscribe from 'components/Subscribe';
+import Footer from 'components/Footer';
+import PageNav from 'components/PageNav';
+import Notification from 'components/Notification';
+import brand from 'public/text/brand';
 
 const useStyles = makeStyles({ uniqId: 'home' })(theme => ({
   mainWrap: {
@@ -43,7 +43,7 @@ function Landing(props) {
   const { classes, cx } = useStyles();
   const { onToggleDark, onToggleDir } = props;
   return (
-    <React.Fragment>
+    <Fragment>
       <Head>
         <title>
           { brand.starter.name + ' - Home Page' }
@@ -51,47 +51,47 @@ function Landing(props) {
       </Head>
       <CssBaseline />
       <section id="home" />
-      <div className={classes.mainWrap}>
-        <Header
-          onToggleDark={onToggleDark}
-          onToggleDir={onToggleDir}
-        />
-        <main className={classes.containerWrap}>
-          <section>
-            <Container fixed>
-              <AnimateSlider />
-            </Container>
-          </section>
-          <section className={cx(classes.spaceTop, classes.spaceBottom)} id="feature">
-            <Container fixed>
-              <Feature />
-            </Container>
-          </section>
-          <section className={classes.pageSection}>
-            <Counter />
-          </section>
-          <section className={classes.spaceTop} id="testimonials">
-            <Testimonials />
-          </section>
-          <section className={classes.spaceTop} id="pricing">
-            <Pricing />
-          </section>
-          <section className={cx(classes.spaceTop, classes.spaceBottomShort)} id="blog">
-            <Blog />
-          </section>
-          <section className={classes.spaceBottom} id="subscribe">
-            <Subscribe />
-          </section>
-        </main>
-        <Hidden lgDown>
-          <PageNav />
-        </Hidden>
-        <Footer toggleDir={onToggleDir} />
-        <Hidden lgDown>
-          <Notification />
-        </Hidden>
-      </div>
-    </React.Fragment>
+      <MainContainer
+        onToggleDark={onToggleDark}
+        onToggleDir={onToggleDir}
+      >
+        <Fragment>
+          <main className={classes.containerWrap}>
+            <section>
+              <Container fixed>
+                <AnimateSlider />
+              </Container>
+            </section>
+            <section className={cx(classes.spaceTop, classes.spaceBottom)} id="feature">
+              <Container fixed>
+                <Feature />
+              </Container>
+            </section>
+            <section className={classes.pageSection}>
+              <Counter />
+            </section>
+            <section className={classes.spaceTop} id="testimonials">
+              <Testimonials />
+            </section>
+            <section className={classes.spaceTop} id="pricing">
+              <Pricing />
+            </section>
+            <section className={cx(classes.spaceTop, classes.spaceBottomShort)} id="blog">
+              <Blog />
+            </section>
+            <section className={classes.spaceBottom} id="subscribe">
+              <Subscribe />
+            </section>
+          </main>
+          <Hidden lgDown>
+            <PageNav />
+          </Hidden>
+          <Hidden lgDown>
+            <Notification />
+          </Hidden>
+        </Fragment>
+      </MainContainer>
+    </Fragment>
   );
 }
 

@@ -3,8 +3,8 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import ScrollAnimation from 'react-scroll-animation-wrapper';
 import useStyles from './feature-style';
-import { useTextAlign } from '~/theme/common';
-import imgAPI from '~/public/images/imgAPI';
+import { useTextAlign } from 'theme/common';
+import imgAPI from 'public/images/imgAPI';
 
 function MainFeature() {
   const { classes, cx } = useStyles();

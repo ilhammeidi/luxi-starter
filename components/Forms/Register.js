@@ -7,7 +7,8 @@ import Checkbox from '@mui/material/Checkbox';
 import Grid from '@mui/material/Grid';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 import { useTranslation } from 'next-i18next';
-import routeLink from '~/public/text/link';
+import routeLink from 'public/text/link';
+import Link from '../Link';
 import SocialAuth from './SocialAuth';
 import Title from '../Title/TitleSecondary';
 import AuthFrame from './AuthFrame';
@@ -51,7 +52,7 @@ function Register() {
       <div>
         <div className={classes.head}>
           <Title align="left">{t('register')}</Title>
-          <Button size="small" className={classes.buttonLink} href={routeLink.starter.login}>
+          <Button component={Link} size="small" className={classes.buttonLink} href={routeLink.starter.login}>
             <Icon className={cx(classes.icon, classes.signArrow)}>arrow_forward</Icon>
             {t('register_already')}
           </Button>

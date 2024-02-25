@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import { useTranslation } from 'next-i18next';
 import useStyles from './slider-style';
-import imgAPI from '~/public/images/imgAPI';
+import imgAPI from 'public/images/imgAPI';
 
 const content = [
   {

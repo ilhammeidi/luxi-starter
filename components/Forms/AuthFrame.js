@@ -6,9 +6,10 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
-import brand from '~/public/text/brand';
-import routerLink from '~/public/text/link';
-import logo from '~/public/images/logo.svg';
+import Link from '../Link';
+import brand from 'public/text/brand';
+import routerLink from 'public/text/link';
+import logo from 'public/images/logo.svg';
 import useStyles from './form-style';
 
 function AuthFrame(props) {
@@ -18,17 +19,18 @@ function AuthFrame(props) {
     <div className={classes.pageWrap}>
       <Hidden mdUp>
         <div className={cx(classes.logo, classes.logoHeader)}>
-          <a href={routerLink.starter.home}>
+          <Link href={routerLink.starter.home}>
             <img src={logo} alt="logo" />
             <Typography component="span">
               {brand.starter.projectName}
             </Typography>
-          </a>
+          </Link>
         </div>
       </Hidden>
       <Container maxWidth="lg" className={classes.innerWrap}>
         <Paper className={cx(classes.formBox, 'fragment-fadeUp')}>
           <IconButton
+            component={Link}
             href={routerLink.starter.home}
             className={classes.backtohome}
             size="large"

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'next-i18next'
-import { getStaticPaths, makeStaticProps } from '~/lib/getStatic';
+import { getStaticPaths, makeStaticProps } from 'lib/getStatic';
 
 const Homepage = () => {
   const { t } = useTranslation('common')

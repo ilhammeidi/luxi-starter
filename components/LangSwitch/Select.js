@@ -8,8 +8,8 @@ import MenuItem from '@mui/material/MenuItem';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import useStyles from '../Footer/footer-style';
-import languageDetector from '~/lib/languageDetector';
-import i18nextConfig from '~/next-i18next.config';
+import languageDetector from 'lib/languageDetector';
+import i18nextConfig from 'next-i18next.config';
 
 function SelectLang(props) {
   const [ctn, setCtn] = useState(null);

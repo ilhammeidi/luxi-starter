@@ -7,8 +7,8 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemSecondaryAction from '@mui/material/ListItemSecondaryAction';
 import ListItemText from '@mui/material/ListItemText';
 import { useRouter } from 'next/router';
-import i18nextConfig from '~/next-i18next.config';
-import languageDetector from '~/lib/languageDetector';
+import i18nextConfig from 'next-i18next.config';
+import languageDetector from 'lib/languageDetector';
 
 const LanguageSwitch = ({
   locale,

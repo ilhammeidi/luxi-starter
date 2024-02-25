@@ -15,8 +15,8 @@ import appTheme from '../theme/appTheme';
 /* import css vendors */
 import 'dandelion-animated-slider/build/horizontal.css';
 import 'animate.css/animate.css';
-import '~/vendors/hamburger-menu.css';
-import '~/vendors/animate-slider.css';
+import 'vendors/hamburger-menu.css';
+import 'vendors/animate-slider.css';
 import '../vendors/animate-extends.css';
 import '../vendors/react-top-loading-bar.css';
 import '../vendors/page-transition.css';
